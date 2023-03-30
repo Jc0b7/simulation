@@ -9,14 +9,14 @@ import java.awt.event.ActionListener;
 
 public class MenuButtons extends JPanel implements ActionListener {
 
-    private final int BUTTON_WIDTH = 275;
+    private final int BUTTON_WIDTH = 300;
     private final int BUTTON_HEIGHT = 75;
     private final Button reset;
     private final Button settings;
     private final Button license;
 
     public MenuButtons() {
-        setBackground(Color.white);
+        setBackground(Color.black);
         setLayout(new FlowLayout(FlowLayout.CENTER, MenuPanel.getWIDTH()/4,30));
 
         reset = new Button("Restart");

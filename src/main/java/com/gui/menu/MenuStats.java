@@ -10,7 +10,7 @@ public class MenuStats extends JPanel {
 
 
     public MenuStats() {
-        setBackground(Color.white);
+        setBackground(Color.black);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
     }
 }

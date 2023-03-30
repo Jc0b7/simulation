@@ -12,7 +12,7 @@ public class MenuPanel extends JPanel {
     private final static int HEIGHT = 900;
 
     public MenuPanel() {
-        setBackground(Color.BLACK);
+        setBackground(Color.black);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
         setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
         add(new MenuStats());
