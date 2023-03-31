@@ -1,6 +1,6 @@
 package com.DynamicObjects;
 
-import com.gui.GamePanel;
+import com.GUI.GamePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +13,7 @@ import java.util.Random;
 public class Human {
     private static int x;
     private static int y;
-    private static final int velocity = 1000;
+    private static final int velocity = 500;
     private static final Random random = new Random();
     private static final Timer timer = new Timer(velocity, new ActionListener() {
         @Override

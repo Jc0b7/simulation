@@ -1,6 +1,6 @@
-package com.gui.menu;
+package com.GUI.menu;
 
-import com.gui.MenuPanel;
+import com.GUI.MenuPanel;
 
 import javax.swing.*;
 import java.awt.*;

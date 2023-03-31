@@ -1,10 +1,10 @@
-package com.gui.menu;
+package com.GUI.menu;
 
 import com.DynamicObjects.Human;
 import com.DynamicObjects.Zombie;
 import com.StaticObjects.Obstacle;
-import com.gui.GamePanel;
-import com.gui.MenuPanel;
+import com.GUI.GamePanel;
+import com.GUI.MenuPanel;
 
 import javax.swing.*;
 import java.awt.*;

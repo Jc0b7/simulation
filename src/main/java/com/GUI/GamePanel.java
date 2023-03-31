@@ -1,4 +1,4 @@
-package com.gui;
+package com.GUI;
 
 import com.DynamicObjects.Human;
 import com.DynamicObjects.Zombie;

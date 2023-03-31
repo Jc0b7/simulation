@@ -1,6 +1,6 @@
 package com.StaticObjects;
 
-import com.gui.GamePanel;
+import com.GUI.GamePanel;
 
 import java.awt.*;
 import java.util.Random;
