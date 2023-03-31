@@ -1,5 +1,7 @@
 package com.gui.menu;
 
+import com.gui.MenuPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,7 +12,7 @@ public class MenuStats extends JPanel {
 
 
     public MenuStats() {
-        setBackground(Color.black);
+        setBackground(MenuPanel.getMenuColor());
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
     }
 }

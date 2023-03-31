@@ -1,0 +1,259 @@
+Index: src/main/java/com/gui/GamePanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/gui/GamePanel.java b/src/main/java/com/gui/GamePanel.java
+--- a/src/main/java/com/gui/GamePanel.java	
++++ b/src/main/java/com/gui/GamePanel.java	
+@@ -2,16 +2,30 @@
+ 
+ import javax.swing.*;
+ import java.awt.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
+ 
+-public class GamePanel extends JPanel {
++public class GamePanel extends JPanel implements ActionListener {
+ 
+     private final int SCREEN_WIDTH = 1000;
+     private final int SCREEN_HEIGHT = 900;
+ 
++    private final int UNIT_SIZE = 50;
++
++    private Timer timer;
++
+     public GamePanel() {
+-        setBackground(Color.black);
+         setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
++        timer = new Timer(1000,this);
++    }
+ 
++
++    public void paint(Graphics g) {
++        Graphics2D g2D = (Graphics2D) g;
++        g2D.drawOval();
++    }
++    @Override
++    public void actionPerformed(ActionEvent e) {
+ 
+     }
+ }
+Index: src/main/java/com/gui/menu/MenuButtons.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/gui/menu/MenuButtons.java b/src/main/java/com/gui/menu/MenuButtons.java
+--- a/src/main/java/com/gui/menu/MenuButtons.java	
++++ b/src/main/java/com/gui/menu/MenuButtons.java	
+@@ -10,27 +10,33 @@
+ public class MenuButtons extends JPanel implements ActionListener {
+ 
+     private final int BUTTON_WIDTH = 300;
+-    private final int BUTTON_HEIGHT = 75;
++    private final int BUTTON_HEIGHT = 50;
++
++    private final Button start;
+     private final Button reset;
+     private final Button settings;
+     private final Button license;
+ 
+     public MenuButtons() {
+-        setBackground(Color.black);
++        setBackground(MenuPanel.getMenuColor());
+         setLayout(new FlowLayout(FlowLayout.CENTER, MenuPanel.getWIDTH()/4,30));
+-
+-        reset = new Button("Restart");
+-        settings = new Button("Settings");
+-        license = new Button("License");
++        
++        start = new Button("START GAME");
++        reset = new Button("RESTART");
++        settings = new Button("SETTINGS");
++        license = new Button("LICENSE");
+ 
++        start.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
+         reset.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
+         settings.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
+         license.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
+ 
++        start.setBackground(Color.LIGHT_GRAY);
+         reset.setBackground(Color.LIGHT_GRAY);
+         settings.setBackground(Color.LIGHT_GRAY);
+         license.setBackground(Color.LIGHT_GRAY);
+ 
++        add(start);
+         add(reset);
+         add(settings);
+         add(license);
+@@ -44,6 +50,8 @@
+ 
+         } else if (e.getSource() == license) {
+ 
++        } else if (e.getSource() == start) {
++            
+         }
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,12 +5,13 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.0.1">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/player/Player.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zombie/Zombie.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/MovingObjects/Human.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/GamePanel.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/MainFrame.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/MenuPanel.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/menu/MenuButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/menu/MenuButtons.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/menu/MenuStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/menu/MenuStats.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/player/Player.java" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -30,6 +31,11 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="master" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+@@ -41,14 +47,14 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "last_opened_file_path": "C:/Users/Jakub/IdeaProjects/LastExistence"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jakub/IdeaProjects/LastExistence&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -79,7 +85,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1680201053572</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="v0.0.1">
++      <created>1680252658295</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1680252658295</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+Index: src/main/java/com/MovingObjects/Human.java
+===================================================================
+diff --git a/src/main/java/com/MovingObjects/Human.java b/src/main/java/com/MovingObjects/Human.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/MovingObjects/Human.java	
+@@ -0,0 +1,23 @@
++package com.MovingObjects;
++
++import javax.swing.*;
++
++public class Human {
++    private int x = 0;
++    private int y = 0;
++    private int HP;
++    private int DMG;
++    private int GOLD;
++    private final int xVelocity = 1;
++    private final int yVelocity = 1;
++    private final int UNIT_SIZE = 25;
++    private final ImageIcon humanIcon = new ImageIcon();
++
++    public Human() {
++    }
++
++    public void move() {
++
++    }
++
++}
+Index: src/main/java/com/gui/MenuPanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/gui/MenuPanel.java b/src/main/java/com/gui/MenuPanel.java
+--- a/src/main/java/com/gui/MenuPanel.java	
++++ b/src/main/java/com/gui/MenuPanel.java	
+@@ -8,11 +8,12 @@
+ 
+ public class MenuPanel extends JPanel {
+ 
++    private static final Color MENU_COLOR = Color.LIGHT_GRAY;
+     private final static int WIDTH = 400;
+     private final static int HEIGHT = 900;
+ 
+     public MenuPanel() {
+-        setBackground(Color.black);
++        setBackground(MENU_COLOR);
+         setPreferredSize(new Dimension(WIDTH,HEIGHT));
+         setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+         add(new MenuStats());
+@@ -22,4 +23,7 @@
+     static public int getWIDTH() {
+         return WIDTH;
+     }
++    static public Color getMenuColor() {
++        return MENU_COLOR;
++    }
+ }
+Index: src/main/java/com/gui/menu/MenuStats.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/gui/menu/MenuStats.java b/src/main/java/com/gui/menu/MenuStats.java
+--- a/src/main/java/com/gui/menu/MenuStats.java	
++++ b/src/main/java/com/gui/menu/MenuStats.java	
+@@ -1,5 +1,7 @@
+ package com.gui.menu;
+ 
++import com.gui.MenuPanel;
++
+ import javax.swing.*;
+ import java.awt.*;
+ 
+@@ -10,7 +12,7 @@
+ 
+ 
+     public MenuStats() {
+-        setBackground(Color.black);
++        setBackground(MenuPanel.getMenuColor());
+         setPreferredSize(new Dimension(WIDTH,HEIGHT));
+     }
+ }
