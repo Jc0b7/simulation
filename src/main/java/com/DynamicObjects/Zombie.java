@@ -13,7 +13,7 @@ public class Zombie {
     private static int[] x;
     private static int[] y;
     private static final Color ZOMBIE_COLOR = new Color(152,252,131);
-    private static final int amount = 8;
+    private static final int amount = 4;
     private static final int velocity = 1000;
     private static final Random random = new Random();
     private static final Timer timer = new Timer(velocity, e -> move());
@@ -49,11 +49,16 @@ public class Zombie {
                             deltaX[i] = 1 + x[i];
                         }
 
-                        if (random.nextBoolean()) {
-                            newX[i] = deltaX[i];
-                            newY[i] = y[i];
+                        if(random.nextBoolean()) {
+                            if (random.nextBoolean()) {
+                                newX[i] = deltaX[i];
+                                newY[i] = y[i];
+                            } else {
+                                newX[i] = x[i];
+                                newY[i] = deltaY[i];
+                            }
                         } else {
-                            newX[i] = x[i];
+                            newX[i] = deltaX[i];
                             newY[i] = deltaY[i];
                         }
                     } while (!GamePanel.checkOutOfBorder(newX[i], newY[i]));

@@ -51,12 +51,16 @@ public class Human {
                     deltaY = -1 + y;
                     deltaX = 1 + x;
                 }
-
-                if (random.nextBoolean()) {
-                    newX = deltaX;
-                    newY = y;
+                if(random.nextBoolean()) {
+                    if (random.nextBoolean()) {
+                        newX = deltaX;
+                        newY = y;
+                    } else {
+                        newX = x;
+                        newY = deltaY;
+                    }
                 } else {
-                    newX = x;
+                    newX = deltaX;
                     newY = deltaY;
                 }
             } while (!GamePanel.checkOutOfBorder(newX, newY));
