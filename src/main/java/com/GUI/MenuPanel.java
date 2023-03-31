@@ -19,7 +19,6 @@ public class MenuPanel extends JPanel {
         add(new MenuStats());
         add(new MenuButtons());
     }
-
     public static int getWIDTH() {
         return WIDTH;
     }

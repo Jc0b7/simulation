@@ -7,9 +7,8 @@ import java.awt.*;
 
 public class MenuStats extends JPanel {
 
-    private int WIDTH = 400;
-    private int HEIGHT = 300;
-
+    private final int WIDTH = 400;
+    private final int HEIGHT = 300;
 
     public MenuStats() {
         setBackground(MenuPanel.getMenuColor());

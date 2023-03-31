@@ -8,12 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Zombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/GUI/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/GUI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/GUI/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/MenuPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/GUI/menu/MenuButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/menu/MenuButtons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/GUI/menu/MenuStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/menu/MenuStats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StaticObjects/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StaticObjects/Obstacle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/MenuPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/menu/MenuButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/menu/MenuButtons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/menu/MenuStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/menu/MenuStats.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +115,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680290009748</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="v0.1.0">
+      <created>1680294389256</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680294389256</updated>
+    </task>
+    <task id="LOCAL-00009" summary="v0.1.0">
+      <created>1680294505256</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680294505256</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

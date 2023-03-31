@@ -47,7 +47,6 @@ public class MenuButtons extends JPanel implements ActionListener {
         add(settings);
         add(license);
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == reset) {

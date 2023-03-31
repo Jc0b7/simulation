@@ -13,6 +13,7 @@ import java.util.Random;
 public class Human {
     private static int x;
     private static int y;
+    private final static Color HUMAN_COLOR = new Color(208,184,66);
     private static final int velocity = 500;
     private static final Random random = new Random();
     private static final Timer timer = new Timer(velocity, new ActionListener() {
@@ -43,7 +44,7 @@ public class Human {
                 } else if (deltaY == 1 && deltaX == 1) {
                     deltaY = 1 + y;
                     deltaX = 1 + x;
-                } else if (deltaY == 1 && deltaX == 0) {
+                } else if (deltaY == 0) {
                     deltaY = 1 + y;
                     deltaX = -1 + x;
                 } else {
@@ -63,14 +64,14 @@ public class Human {
         GamePanel.setObject(x,y,GamePanel.getBoardColor());
         x = newX;
         y = newY;
-        GamePanel.setObject(x,y,Color.cyan);
+        GamePanel.setObject(x,y,HUMAN_COLOR);
     }
     public static void setPosition() {
         do {
             x = random.nextInt(GamePanel.getBoardSize());
             y = random.nextInt(GamePanel.getBoardSize());
         } while (GamePanel.checkPosition(x, y));
-        GamePanel.setObject(x,y,Color.cyan);
+        GamePanel.setObject(x,y,HUMAN_COLOR);
     }
     public static void startMove() {
         timer.start();

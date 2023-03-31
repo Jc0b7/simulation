@@ -19,9 +19,7 @@ public class Obstacle {
         y = new int[amount];
         setPosition();
     }
-    
     public static void setPosition() {
-
         for (int i = 0; i < amount; i++) {
             do {
                 x[i] = random.nextInt(GamePanel.getBoardSize());
