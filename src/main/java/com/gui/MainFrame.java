@@ -2,6 +2,7 @@ package com.gui;
 
 
 import com.DynamicObjects.Human;
+import com.StaticObjects.Obstacle;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,5 +28,6 @@ public class MainFrame extends JFrame {
     public static void main(String[] args) {
         new MainFrame();
         new Human();
+        new Obstacle();
     }
 }

@@ -17,7 +17,6 @@ public class Human {
     private static final int velocity = 1000;
     private static final Random random = new Random();
     private static final Timer timer = new Timer();
-
     private static final TimerTask task = new TimerTask() {
         @Override
         public void run() {
@@ -61,20 +60,23 @@ public class Human {
                     newY = deltaY;
                 }
             } while (!GamePanel.checkOutOfBorder(newX, newY));
-        } while (!GamePanel.freePosition(newX, newY));
-        GamePanel.setObject(x,y,Color.white);
+        } while (GamePanel.checkPosition(newX, newY));
+        GamePanel.setObject(x,y,GamePanel.getBoardColor());
         x = newX;
         y = newY;
         GamePanel.setObject(x,y,Color.cyan);
     }
-    public void setPosition() {
+    public static void setPosition() {
         do {
             x = random.nextInt(GamePanel.getBoardSize());
             y = random.nextInt(GamePanel.getBoardSize());
-        } while (!GamePanel.freePosition(x, y));
+        } while (GamePanel.checkPosition(x, y));
         GamePanel.setObject(x,y,Color.cyan);
     }
-    public static void startMoving() {
+    public static void startMove() {
         timer.scheduleAtFixedRate(task,0,velocity);
+    }
+    public static void stopMove() {
+
     }
 }

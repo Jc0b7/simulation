@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.0.1">
+    <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.0.2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StaticObjects/Obstacle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/MainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/MenuPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/menu/MenuButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/menu/MenuButtons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/menu/MenuStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/menu/MenuStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Human.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +31,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -80,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680201053572</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="v0.0.2">
+      <created>1680264290765</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680264290765</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -107,17 +119,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v0.0.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.0.1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gui/MainFrame.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="v0.0.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.0.2" />
   </component>
 </project>

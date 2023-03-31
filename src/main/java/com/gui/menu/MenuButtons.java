@@ -1,6 +1,9 @@
 package com.gui.menu;
 
 import com.DynamicObjects.Human;
+import com.StaticObjects.Obstacle;
+import com.gui.GamePanel;
+import com.gui.MainFrame;
 import com.gui.MenuPanel;
 
 import javax.swing.*;
@@ -37,6 +40,7 @@ public class MenuButtons extends JPanel implements ActionListener {
         license.setBackground(Color.LIGHT_GRAY);
 
         start.addActionListener(this);
+        reset.addActionListener(this);
 
         add(start);
         add(reset);
@@ -47,13 +51,16 @@ public class MenuButtons extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == reset) {
-
+            GamePanel.resetBoard();
+            Human.stopMove();
+            Human.setPosition();
+            Obstacle.setPosition();
         } else if (e.getSource() == settings) {
 
         } else if (e.getSource() == license) {
 
         } else if (e.getSource() == start) {
-            Human.startMoving();
+            Human.startMove();
         }
     }
 }
