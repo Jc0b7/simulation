@@ -3,7 +3,6 @@ package com.gui.menu;
 import com.DynamicObjects.Human;
 import com.StaticObjects.Obstacle;
 import com.gui.GamePanel;
-import com.gui.MainFrame;
 import com.gui.MenuPanel;
 
 import javax.swing.*;
@@ -56,9 +55,7 @@ public class MenuButtons extends JPanel implements ActionListener {
             Human.setPosition();
             Obstacle.setPosition();
         } else if (e.getSource() == settings) {
-
         } else if (e.getSource() == license) {
-
         } else if (e.getSource() == start) {
             Human.startMove();
         }

@@ -6,7 +6,6 @@ import java.awt.*;
 public class GamePanel extends JPanel {
 
     private static final int boardSize = 12;
-
     private static final Color boardColor = new Color(7,142,12);
     private static final JButton[][] board = new JButton[boardSize][boardSize];
     private final int SCREEN_WIDTH = 1000;
@@ -25,23 +24,18 @@ public class GamePanel extends JPanel {
             }
         }
     }
-
     public static int getBoardSize() {
         return boardSize;
     }
-
     public static boolean checkPosition(int x, int y) {
         return board[x][y].getBackground() != boardColor;
     }
-
     public static boolean checkOutOfBorder(int x, int y) {
         return (x >= 0 && y >= 0 && y < boardSize && x < boardSize);
     }
-
     public static void setObject(int x, int y, Color color) {
         board[x][y].setBackground(color);
     }
-
     public static Color getBoardColor() {
         return boardColor;
     }
