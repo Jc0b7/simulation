@@ -13,7 +13,7 @@ import java.util.Random;
 public class Zombie {
     private static int x[];
     private static int y[];
-    private static int amount = 4;
+    private static int amount = 2;
     private static final int velocity = 1500;
     private static final Random random = new Random();
     private static final Timer timer = new Timer(velocity, new ActionListener() {
