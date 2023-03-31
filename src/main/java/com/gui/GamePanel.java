@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class GamePanel extends JPanel {
 
-    private static final int boardSize = 3;
+    private static final int boardSize = 10;
 
     private static final JButton[][] board = new JButton[boardSize][boardSize];
     private final int SCREEN_WIDTH = 1000;
