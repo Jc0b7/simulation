@@ -4,9 +4,11 @@ import com.gui.GamePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Timer;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
-import java.util.TimerTask;
+
 
 public class Human {
     private static int x;
@@ -16,14 +18,14 @@ public class Human {
     private final ImageIcon playerIcon = new ImageIcon();
     private static final int velocity = 1000;
     private static final Random random = new Random();
-    private static final Timer timer = new Timer();
-    private static final TimerTask task = new TimerTask() {
+    private static final Timer timer = new Timer(velocity, new ActionListener() {
         @Override
-        public void run() {
-            System.out.println("X = " + x + " Y = " + y);
+        public void actionPerformed(ActionEvent e) {
             move();
+            System.out.println("X = " + x + " Y = " + y);
         }
-    };
+    });
+
 
     public Human() {
         setPosition();
@@ -74,9 +76,9 @@ public class Human {
         GamePanel.setObject(x,y,Color.cyan);
     }
     public static void startMove() {
-        timer.scheduleAtFixedRate(task,0,velocity);
+        timer.start();
     }
     public static void stopMove() {
-
+        timer.stop();
     }
 }
