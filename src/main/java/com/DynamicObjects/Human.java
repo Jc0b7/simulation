@@ -13,9 +13,6 @@ import java.util.Random;
 public class Human {
     private static int x;
     private static int y;
-    private int HP;
-    private int Damage;
-    private final ImageIcon playerIcon = new ImageIcon();
     private static final int velocity = 1000;
     private static final Random random = new Random();
     private static final Timer timer = new Timer(velocity, new ActionListener() {

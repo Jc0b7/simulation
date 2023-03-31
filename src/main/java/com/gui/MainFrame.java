@@ -2,6 +2,7 @@ package com.gui;
 
 
 import com.DynamicObjects.Human;
+import com.DynamicObjects.Zombie;
 import com.StaticObjects.Obstacle;
 
 import javax.swing.*;
@@ -28,6 +29,7 @@ public class MainFrame extends JFrame {
     public static void main(String[] args) {
         new MainFrame();
         new Human();
+        new Zombie();
         new Obstacle();
     }
 }
