@@ -27,7 +27,6 @@ public class GamePanel extends JPanel {
                 add(board[i][j]);
             }
         }
-
         new Human();
         new Zombie();
         new Obstacle();
