@@ -13,7 +13,7 @@ import java.util.Random;
 public class Zombie {
     private static int x[];
     private static int y[];
-    private static int amount = 2;
+    private static int amount = 8;
     private static final int velocity = 1500;
     private static final Random random = new Random();
     private static final Timer timer = new Timer(velocity, new ActionListener() {
@@ -31,10 +31,10 @@ public class Zombie {
     }
 
     public static void move() {
-        int deltaY[] = new int[amount];
-        int deltaX[] = new int[amount];
-        int newX[] = new int[amount];
-        int newY[] = new int[amount];
+        int[] deltaY = new int[amount];
+        int[] deltaX = new int[amount];
+        int[] newX = new int[amount];
+        int[] newY = new int[amount];
 
             for (int i = 0; i < amount; i++) {
                 do {
@@ -65,13 +65,11 @@ public class Zombie {
                         }
                     } while (!GamePanel.checkOutOfBorder(newX[i], newY[i]));
                 } while (GamePanel.checkPosition(newX[i], newY[i]));
+                GamePanel.setObject(x[i], y[i], GamePanel.getBoardColor());
+                x[i] = newX[i];
+                y[i] = newY[i];
+                GamePanel.setObject(x[i], y[i], Color.green);
             }
-        for (int i = 0; i < amount; i++) {
-            GamePanel.setObject(x[i], y[i], GamePanel.getBoardColor());
-            x[i] = newX[i];
-            y[i] = newY[i];
-            GamePanel.setObject(x[i], y[i], Color.green);
-        }
     }
     public static void setPosition() {
         for (int i = 0; i < amount; i++) {
@@ -79,8 +77,6 @@ public class Zombie {
                 x[i] = random.nextInt(GamePanel.getBoardSize());
                 y[i] = random.nextInt(GamePanel.getBoardSize());
             } while (GamePanel.checkPosition(x[i], y[i]));
-        }
-        for (int i = 0; i < amount; i++) {
             GamePanel.setObject(x[i], y[i], Color.green);
         }
     }

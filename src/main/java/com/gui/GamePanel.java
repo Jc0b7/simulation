@@ -1,11 +1,15 @@
 package com.gui;
 
+import com.DynamicObjects.Human;
+import com.DynamicObjects.Zombie;
+import com.StaticObjects.Obstacle;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel {
 
-    private static final int boardSize = 6;
+    private static final int boardSize = 10;
     private static final Color boardColor = new Color(7,142,12);
     private static final JButton[][] board = new JButton[boardSize][boardSize];
     private final int SCREEN_WIDTH = 1000;
@@ -23,6 +27,10 @@ public class GamePanel extends JPanel {
                 add(board[i][j]);
             }
         }
+
+        new Human();
+        new Zombie();
+        new Obstacle();
     }
     public static int getBoardSize() {
         return boardSize;

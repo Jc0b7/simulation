@@ -7,6 +7,8 @@
     <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.1.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Zombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gui/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
