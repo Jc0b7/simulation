@@ -63,7 +63,7 @@ public class Human {
                     newX = deltaX;
                     newY = deltaY;
                 }
-            } while (!GamePanel.checkOutOfBorder(newX, newY));
+            } while (GamePanel.checkOutOfBorder(newX, newY));
         } while (GamePanel.checkPosition(newX, newY));
         GamePanel.setObject(x,y,GamePanel.getBoardColor());
         x = newX;

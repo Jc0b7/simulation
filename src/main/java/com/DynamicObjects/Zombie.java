@@ -61,7 +61,7 @@ public class Zombie {
                             newX[i] = deltaX[i];
                             newY[i] = deltaY[i];
                         }
-                    } while (!GamePanel.checkOutOfBorder(newX[i], newY[i]));
+                    } while (GamePanel.checkOutOfBorder(newX[i], newY[i]));
                 } while (GamePanel.checkPosition(newX[i], newY[i]));
                 GamePanel.setObject(x[i], y[i], GamePanel.getBoardColor());
                 x[i] = newX[i];

@@ -1,9 +1,5 @@
 package com.GUI;
 
-import com.DynamicObjects.Human;
-import com.DynamicObjects.Zombie;
-import com.StaticObjects.Obstacle;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -28,9 +24,6 @@ public class GamePanel extends JPanel {
                 add(board[i][j]);
             }
         }
-        new Human();
-        new Zombie();
-        new Obstacle();
     }
     public static int getBoardSize() {
         return boardSize;
@@ -39,7 +32,7 @@ public class GamePanel extends JPanel {
         return board[x][y].getBackground() != boardColor;
     }
     public static boolean checkOutOfBorder(int x, int y) {
-        return (x >= 0 && y >= 0 && y < boardSize && x < boardSize);
+        return (x < 0 || y < 0 || y >= boardSize || x >= boardSize);
     }
     public static void setObject(int x, int y, Color color) {
         board[x][y].setBackground(color);

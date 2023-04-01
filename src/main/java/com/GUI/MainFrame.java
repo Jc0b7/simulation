@@ -1,6 +1,8 @@
 package com.GUI;
 
 
+import com.Functional.GameController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -23,5 +25,6 @@ public class MainFrame extends JFrame {
 
     public static void main(String[] args) {
         new MainFrame();
+        new GameController();
     }
 }

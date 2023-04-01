@@ -12,9 +12,8 @@ public class Obstacle {
     static Random random = new Random();
     private static final Color OBSTACLE_COLOR = Color.GRAY;
     private static int amount;
-    
     public Obstacle() {
-        amount = random.nextInt(4) + GamePanel.getBoardSize()/2;
+        amount = random.nextInt(GamePanel.getBoardSize()/3) + GamePanel.getBoardSize();
         x = new int[amount];
         y = new int[amount];
         setPosition();

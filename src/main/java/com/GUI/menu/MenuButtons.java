@@ -1,9 +1,6 @@
 package com.GUI.menu;
 
-import com.DynamicObjects.Human;
-import com.DynamicObjects.Zombie;
-import com.StaticObjects.Obstacle;
-import com.GUI.GamePanel;
+import com.Functional.GameController;
 import com.GUI.MenuPanel;
 
 import javax.swing.*;
@@ -50,17 +47,11 @@ public class MenuButtons extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == reset) {
-            GamePanel.resetBoard();
-            Human.stopMove();
-            Zombie.stopMove();
-            Human.setPosition();
-            Zombie.setPosition();
-            Obstacle.setPosition();
+            GameController.restart();
         } else if (e.getSource() == settings) {
         } else if (e.getSource() == license) {
         } else if (e.getSource() == start) {
-            Human.startMove();
-            Zombie.startMove();
+            GameController.startMove();
         }
     }
 }
