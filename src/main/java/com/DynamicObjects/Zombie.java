@@ -14,7 +14,7 @@ public class Zombie {
     private static int[] y;
     private static final Color ZOMBIE_COLOR = new Color(152,252,131);
     private static final int amount = 4;
-    private static final int velocity = 1000;
+    private static final int velocity = 750;
     private static final Random random = new Random();
     private static final Timer timer = new Timer(velocity, e -> move());
 

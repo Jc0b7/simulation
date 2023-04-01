@@ -23,6 +23,8 @@ public class GamePanel extends JPanel {
             for (int j = 0; j < boardSize; j++) {
                 board[i][j] = new JButton();
                 board[i][j].setBackground(boardColor);
+                board[i][j].setBorderPainted(false);
+                board[i][j].setFocusPainted(false);
                 add(board[i][j]);
             }
         }

@@ -14,7 +14,7 @@ public class Human {
     private static int x;
     private static int y;
     private final static Color HUMAN_COLOR = new Color(208,184,66);
-    private static final int velocity = 500;
+    private static final int velocity = 375;
     private static final Random random = new Random();
     private static final Timer timer = new Timer(velocity, new ActionListener() {
         @Override
