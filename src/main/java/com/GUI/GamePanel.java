@@ -1,5 +1,7 @@
 package com.GUI;
 
+import com.DynamicObjects.Human;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -30,6 +32,9 @@ public class GamePanel extends JPanel {
     }
     public static boolean checkPosition(int x, int y) {
         return board[x][y].getBackground() != boardColor;
+    }
+    public static boolean checkPosition(int x, int y, Color color) {
+        return board[x][y].getBackground() != boardColor && board[x][y].getBackground() != color;
     }
     public static boolean checkOutOfBorder(int x, int y) {
         return (x < 0 || y < 0 || y >= boardSize || x >= boardSize);

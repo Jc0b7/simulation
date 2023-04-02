@@ -13,6 +13,8 @@ import java.util.Random;
 public class Human {
     private static int x;
     private static int y;
+    private int hp = 100;
+    private int damage;
     private final static Color HUMAN_COLOR = new Color(208,184,66);
     private static final int velocity = 375;
     private static final Random random = new Random();
@@ -26,6 +28,8 @@ public class Human {
 
 
     public Human() {
+        setDamage(10);
+        setHp(100);
         setPosition();
     }
 
@@ -64,7 +68,7 @@ public class Human {
                     newY = deltaY;
                 }
             } while (GamePanel.checkOutOfBorder(newX, newY));
-        } while (GamePanel.checkPosition(newX, newY));
+        } while (GamePanel.checkPosition(newX, newY, getHumanColor()));
         GamePanel.setObject(x,y,GamePanel.getBoardColor());
         x = newX;
         y = newY;
@@ -74,7 +78,7 @@ public class Human {
         do {
             x = random.nextInt(GamePanel.getBoardSize());
             y = random.nextInt(GamePanel.getBoardSize());
-        } while (GamePanel.checkPosition(x, y));
+        } while (GamePanel.checkPosition(x, y, Zombie.getZombieColor()));
         GamePanel.setObject(x,y,HUMAN_COLOR);
     }
     public static void startMove() {
@@ -82,5 +86,29 @@ public class Human {
     }
     public static void stopMove() {
         timer.stop();
+    }
+    public int getHp() {
+        return hp;
+    }
+    public void addHP(int hp) {
+        this.hp += hp;
+    }
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+    public int getDamage() {
+        return damage;
+    }
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
+    public static Color getHumanColor() {
+        return HUMAN_COLOR;
     }
 }

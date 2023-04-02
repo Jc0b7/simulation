@@ -8,6 +8,8 @@ import com.StaticObjects.Obstacle;
 public class GameController {
 
 
+
+
     public GameController() {
         new Human();
         new Zombie();
@@ -16,8 +18,7 @@ public class GameController {
 
     public static void restart() {
         GamePanel.resetBoard();
-        Human.stopMove();
-        Zombie.stopMove();
+        stopMove();
         Human.setPosition();
         Zombie.setPosition();
         Obstacle.setPosition();
@@ -25,5 +26,9 @@ public class GameController {
     public static void startMove() {
         Human.startMove();
         Zombie.startMove();
+    }
+    public static void stopMove() {
+        Human.stopMove();
+        Zombie.stopMove();
     }
 }
