@@ -14,8 +14,8 @@ import java.util.Random;
 public class Zombie {
     private static ArrayList<Integer> x;
     private static ArrayList<Integer> y;
-    private ArrayList<Integer> hp;
-    private ArrayList<Integer> damage;
+    private static ArrayList<Integer> hp;
+    private static ArrayList<Integer> damage;
     private static final Color ZOMBIE_COLOR = new Color(152,252,131);
     private static final int amount = 4;
     private static final int velocity = 750;
@@ -26,8 +26,8 @@ public class Zombie {
         hp = new ArrayList<>(amount);
         damage = new ArrayList<>(amount);
         for (int i = 0; i < amount; i++) {
-            setHp(30, i);
-            setDamage(5, i);
+            hp.add(30);
+            damage.add(5);
         }
         x = new ArrayList<>(amount);
         y = new ArrayList<>(amount);
@@ -73,6 +73,24 @@ public class Zombie {
                         }
                     } while (GamePanel.checkOutOfBorder(newX[i], newY[i]));
                 } while (GamePanel.checkPosition(newX[i], newY[i], Human.getHumanColor()));
+                for (int j = 0; j < amount; j++) {
+                    if(x.get(j) == Human.getX() && y.get(j) == Human.getY()) {
+                        while (Human.getHp() > 0) {
+                            addHP(-Human.getDamage(), j);
+                            Human.addHP(-getDamage(j));
+                        }
+                        if(Human.getHp() < 0) {
+                            GameController.stopMove();
+                        } else {
+                            GamePanel.setObject(x.get(j), y.get(j), GamePanel.getBoardColor());
+                            x.remove(j);
+                            y.remove(j);
+                            hp.remove(j);
+                            damage.remove(j);
+                        }
+                        break;
+                    }
+                }
                 GamePanel.setObject(x.get(i), y.get(i), GamePanel.getBoardColor());
                 x.set(i, newX[i]);
                 y.set(i, newY[i]);
@@ -82,9 +100,9 @@ public class Zombie {
     public static void setPosition() {
         for (int i = 0; i < amount; i++) {
             do {
-                x.set(i, random.nextInt(GamePanel.getBoardSize()));
-                y.set(i, random.nextInt(GamePanel.getBoardSize()));
-            } while (GamePanel.checkPosition(x.get(i), y.get(i), Human.getHumanColor()));
+                x.add(random.nextInt(GamePanel.getBoardSize()));
+                y.add(random.nextInt(GamePanel.getBoardSize()));
+            } while (GamePanel.checkPosition(x.get(i), y.get(i)));
             GamePanel.setObject(x.get(i), y.get(i), ZOMBIE_COLOR);
         }
     }
@@ -94,11 +112,11 @@ public class Zombie {
     public static void stopMove() {
         timer.stop();
     }
-    public void addHP(int hp, int i) {
-        this.hp.set(i, getHP(i) + hp);
+    public static void addHP(int hp, int i) {
+        Zombie.hp.set(i, getHP(i) + hp);
     }
-    public int getHP(int i) {
-        return this.hp.get(i);
+    public static int getHP(int i) {
+        return Zombie.hp.get(i);
     }
     public void setHp(int hp, int i) {
         this.hp.set(i, hp);
@@ -106,31 +124,12 @@ public class Zombie {
     public void setDamage(int damage, int i) {
         this.damage.set(i, damage);
     }
-    public int getDamage(int i) {
-        return this.damage.get(i);
+    public static int getDamage(int i) {
+        return Zombie.damage.get(i);
     }
 
     public static Color getZombieColor() {
         return ZOMBIE_COLOR;
     }
 
-    public void attack(Human human) {
-        for (int i = 0; i < amount; i++) {
-            if(x.get(i) == human.getX() && y.get(i) == human.getY()) {
-                while (human.getHp() > 0) {
-                    addHP(-human.getDamage(),i);
-                    human.addHP(-getDamage(i));
-                }
-                if(human.getHp() < 0) {
-                    GameController.stopMove();
-                } else {
-                    x.remove(i);
-                    y.remove(i);
-                    hp.remove(i);
-                    damage.remove(i);
-                }
-                break;
-            }
-        }
-    }
 }

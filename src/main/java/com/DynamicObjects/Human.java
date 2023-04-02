@@ -13,8 +13,8 @@ import java.util.Random;
 public class Human {
     private static int x;
     private static int y;
-    private int hp = 100;
-    private int damage;
+    private static int hp = 100;
+    private static int damage;
     private final static Color HUMAN_COLOR = new Color(208,184,66);
     private static final int velocity = 375;
     private static final Random random = new Random();
@@ -87,25 +87,25 @@ public class Human {
     public static void stopMove() {
         timer.stop();
     }
-    public int getHp() {
+    public static int getHp() {
         return hp;
     }
-    public void addHP(int hp) {
-        this.hp += hp;
+    public static void addHP(int hp) {
+        hp += hp;
     }
     public void setHp(int hp) {
-        this.hp = hp;
+        Human.hp = hp;
     }
     public void setDamage(int damage) {
-        this.damage = damage;
+        Human.damage = damage;
     }
-    public int getDamage() {
+    public static int getDamage() {
         return damage;
     }
-    public int getX() {
+    public static int getX() {
         return x;
     }
-    public int getY() {
+    public static int getY() {
         return y;
     }
     public static Color getHumanColor() {
