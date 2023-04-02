@@ -39,7 +39,7 @@ public class Zombie {
         int[] newX = new int[amount];
         int[] newY = new int[amount];
 
-            for (int i = 0; i < amount; i++) {
+            for (int i = 0; i < x.size(); i++) {
                 do {
                     do {
                         deltaY[i] = random.nextInt(2);
@@ -73,31 +73,23 @@ public class Zombie {
                         }
                     } while (GamePanel.checkOutOfBorder(newX[i], newY[i]));
                 } while (GamePanel.checkPosition(newX[i], newY[i], Human.getHumanColor()));
-                for (int j = 0; j < amount; j++) {
-                    if(x.get(j) == Human.getX() && y.get(j) == Human.getY()) {
-                        while (Human.getHp() > 0) {
-                            addHP(-Human.getDamage(), j);
-                            Human.addHP(-getDamage(j));
-                        }
-                        if(Human.getHp() < 0) {
-                            GameController.stopMove();
-                        } else {
-                            GamePanel.setObject(x.get(j), y.get(j), GamePanel.getBoardColor());
-                            x.remove(j);
-                            y.remove(j);
-                            hp.remove(j);
-                            damage.remove(j);
-                        }
-                        break;
-                    }
-                }
+
                 GamePanel.setObject(x.get(i), y.get(i), GamePanel.getBoardColor());
                 x.set(i, newX[i]);
                 y.set(i, newY[i]);
-                GamePanel.setObject(x.get(i), y.get(i), ZOMBIE_COLOR);
+
+                    if(x.get(i) == Human.getX() && y.get(i) == Human.getY()) {
+                        System.out.println(x.size());
+                        x.remove(i);
+                        y.remove(i);
+                    } else {
+                        GamePanel.setObject(x.get(i), y.get(i), ZOMBIE_COLOR);
+                    }
             }
     }
     public static void setPosition() {
+        x.clear();
+        y.clear();
         for (int i = 0; i < amount; i++) {
             do {
                 x.add(random.nextInt(GamePanel.getBoardSize()));

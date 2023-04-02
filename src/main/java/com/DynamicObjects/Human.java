@@ -78,7 +78,7 @@ public class Human {
         do {
             x = random.nextInt(GamePanel.getBoardSize());
             y = random.nextInt(GamePanel.getBoardSize());
-        } while (GamePanel.checkPosition(x, y, Zombie.getZombieColor()));
+        } while (GamePanel.checkPosition(x, y));
         GamePanel.setObject(x,y,HUMAN_COLOR);
     }
     public static void startMove() {
