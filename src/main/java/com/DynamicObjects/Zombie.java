@@ -91,9 +91,13 @@ public class Zombie {
         x.clear();
         y.clear();
         for (int i = 0; i < amount; i++) {
+            x.add(0);
+            y.add(0);
+        }
+        for (int i = 0; i < amount; i++) {
             do {
-                x.add(random.nextInt(GamePanel.getBoardSize()));
-                y.add(random.nextInt(GamePanel.getBoardSize()));
+                x.set(i, random.nextInt(GamePanel.getBoardSize()));
+                y.set(i, random.nextInt(GamePanel.getBoardSize()));
             } while (GamePanel.checkPosition(x.get(i), y.get(i)));
             GamePanel.setObject(x.get(i), y.get(i), ZOMBIE_COLOR);
         }
