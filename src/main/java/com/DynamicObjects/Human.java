@@ -15,7 +15,7 @@ public class Human {
     private static int y;
     private static int hp = 100;
     private static int damage;
-    private final static Color HUMAN_COLOR = new Color(208,184,66);
+    private final static Color HUMAN_COLOR = new Color(208, 184, 66);
     private static final int velocity = 375;
     private static final Random random = new Random();
     private static final Timer timer = new Timer(velocity, new ActionListener() {
@@ -26,7 +26,6 @@ public class Human {
         }
     });
 
-
     public Human() {
         setDamage(10);
         setHp(100);
@@ -36,7 +35,7 @@ public class Human {
     public static void move() {
 
         int deltaY, deltaX;
-        int newX,newY;
+        int newX, newY;
         do {
             do {
                 deltaY = random.nextInt(2);
@@ -55,7 +54,7 @@ public class Human {
                     deltaY = -1 + y;
                     deltaX = 1 + x;
                 }
-                if(random.nextBoolean()) {
+                if (random.nextBoolean()) {
                     if (random.nextBoolean()) {
                         newX = deltaX;
                         newY = y;
@@ -69,45 +68,56 @@ public class Human {
                 }
             } while (GamePanel.checkOutOfBorder(newX, newY));
         } while (GamePanel.checkPosition(newX, newY, getHumanColor()));
-        GamePanel.setObject(x,y,GamePanel.getBoardColor());
+        GamePanel.setObject(x, y, GamePanel.getBoardColor());
         x = newX;
         y = newY;
-        GamePanel.setObject(x,y,HUMAN_COLOR);
+        GamePanel.setObject(x, y, HUMAN_COLOR);
     }
+
     public static void setPosition() {
         do {
             x = random.nextInt(GamePanel.getBoardSize());
             y = random.nextInt(GamePanel.getBoardSize());
         } while (GamePanel.checkPosition(x, y));
-        GamePanel.setObject(x,y,HUMAN_COLOR);
+        GamePanel.setObject(x, y, HUMAN_COLOR);
     }
+
     public static void startMove() {
         timer.start();
     }
+
     public static void stopMove() {
         timer.stop();
     }
+
     public static int getHp() {
         return hp;
     }
+
     public static void addHP(int hp) {
         hp += hp;
     }
+
     public void setHp(int hp) {
         Human.hp = hp;
     }
+
     public void setDamage(int damage) {
         Human.damage = damage;
     }
+
     public static int getDamage() {
         return damage;
     }
+
     public static int getX() {
         return x;
     }
+
     public static int getY() {
         return y;
     }
+
     public static Color getHumanColor() {
         return HUMAN_COLOR;
     }

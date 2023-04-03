@@ -13,10 +13,10 @@ public class MainFrame extends JFrame {
         super("Last Existence");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setLocation(50,50);
+        setLocation(50, 50);
         setVisible(true);
         setBackground(Color.black);
-        setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
+        setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         add(new GamePanel());
         add(new MenuPanel());
         pack();

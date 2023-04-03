@@ -80,7 +80,7 @@ public class Zombie {
 
                         }
                     }
-                    if(Human.getX() == x.get(i) + 1 && Human.getY() == y.get(i) + 1) {
+                    if (Human.getX() == x.get(i) + 1 && Human.getY() == y.get(i) + 1) {
                         newY[i] = 1 + y.get(i);
                         newX[i] = 1 + x.get(i);
                     } else if (Human.getX() == x.get(i) - 1 && Human.getY() == y.get(i) - 1) {
@@ -95,7 +95,7 @@ public class Zombie {
                     } else if (Human.getX() == x.get(i) - 1 && Human.getY() == y.get(i)) {
                         newY[i] = y.get(i);
                         newX[i] = -1 + x.get(i);
-                    } else if (Human.getX() == x.get(i)  && Human.getY() == y.get(i) - 1) {
+                    } else if (Human.getX() == x.get(i) && Human.getY() == y.get(i) - 1) {
                         newY[i] = -1 + y.get(i);
                         newX[i] = x.get(i);
                     } else if (Human.getX() == x.get(i) + 1 && Human.getY() == y.get(i) - 1) {
@@ -123,6 +123,7 @@ public class Zombie {
             }
         }
     }
+
     public static void setPosition() {
         x.clear();
         y.clear();
@@ -138,27 +139,35 @@ public class Zombie {
             GamePanel.setObject(x.get(i), y.get(i), ZOMBIE_COLOR);
         }
     }
+
     public static void startMove() {
         timer.start();
     }
+
     public static void stopMove() {
         timer.stop();
     }
+
     public static void addHP(int hp, int i) {
         Zombie.hp.set(i, getHP(i) + hp);
     }
+
     public static int getHP(int i) {
         return Zombie.hp.get(i);
     }
+
     public void setHp(int hp, int i) {
         this.hp.set(i, hp);
     }
+
     public void setDamage(int damage, int i) {
         this.damage.set(i, damage);
     }
+
     public static int getDamage(int i) {
         return Zombie.damage.get(i);
     }
+
     public static Color getZombieColor() {
         return ZOMBIE_COLOR;
     }

@@ -8,8 +8,6 @@ import com.StaticObjects.Obstacle;
 public class GameController {
 
 
-
-
     public GameController() {
         new Human();
         new Zombie();
@@ -23,10 +21,12 @@ public class GameController {
         Zombie.setPosition();
         Obstacle.setPosition();
     }
+
     public static void startMove() {
         Zombie.startMove();
         Human.startMove();
     }
+
     public static void stopMove() {
         Human.stopMove();
         Zombie.stopMove();

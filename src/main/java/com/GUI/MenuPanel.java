@@ -14,14 +14,16 @@ public class MenuPanel extends JPanel {
 
     public MenuPanel() {
         setBackground(MENU_COLOR);
-        setPreferredSize(new Dimension(WIDTH,HEIGHT));
-        setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         add(new MenuStats());
         add(new MenuButtons());
     }
+
     public static int getWIDTH() {
         return WIDTH;
     }
+
     public static Color getMenuColor() {
         return MENU_COLOR;
     }

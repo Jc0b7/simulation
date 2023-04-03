@@ -20,7 +20,7 @@ public class MenuButtons extends JPanel implements ActionListener {
 
     public MenuButtons() {
         setBackground(MenuPanel.getMenuColor());
-        setLayout(new FlowLayout(FlowLayout.CENTER, MenuPanel.getWIDTH()/4,30));
+        setLayout(new FlowLayout(FlowLayout.CENTER, MenuPanel.getWIDTH() / 4, 30));
 
         start = new JButton("START");
         reset = new JButton("RESTART");
@@ -28,11 +28,11 @@ public class MenuButtons extends JPanel implements ActionListener {
         license = new JButton("LICENSE");
 
 
-        start.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
-        reset.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
-        settings.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
-        license.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
-        
+        start.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
+        reset.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
+        settings.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
+        license.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
+
         start.setBackground(BUTTON_COLOR);
         reset.setBackground(BUTTON_COLOR);
         settings.setBackground(BUTTON_COLOR);
@@ -52,9 +52,10 @@ public class MenuButtons extends JPanel implements ActionListener {
         add(settings);
         add(license);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == reset) {
+        if (e.getSource() == reset) {
             GameController.restart();
         } else if (e.getSource() == settings) {
         } else if (e.getSource() == license) {
