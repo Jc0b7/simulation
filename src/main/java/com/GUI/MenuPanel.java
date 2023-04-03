@@ -10,7 +10,7 @@ public class MenuPanel extends JPanel {
 
     private final static int WIDTH = 400;
     private final static int HEIGHT = 900;
-    private final static Color MENU_COLOR = Color.gray;
+    private final static Color MENU_COLOR = Color.lightGray;
 
     public MenuPanel() {
         setBackground(MENU_COLOR);

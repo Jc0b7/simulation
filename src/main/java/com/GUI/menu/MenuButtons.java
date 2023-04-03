@@ -12,32 +12,40 @@ public class MenuButtons extends JPanel implements ActionListener {
 
     private final int BUTTON_WIDTH = 310;
     private final int BUTTON_HEIGHT = 50;
-    private final Button reset;
-    private final Button start;
-    private final Button settings;
-    private final Button license;
+    private final JButton reset;
+    private final JButton start;
+    private final JButton settings;
+    private final JButton license;
+    private final Color BUTTON_COLOR = Color.white;
 
     public MenuButtons() {
         setBackground(MenuPanel.getMenuColor());
         setLayout(new FlowLayout(FlowLayout.CENTER, MenuPanel.getWIDTH()/4,30));
-        
-        start = new Button("START");
-        reset = new Button("RESTART");
-        settings = new Button("SETTINGS");
-        license = new Button("LICENSE");
+
+        start = new JButton("START");
+        reset = new JButton("RESTART");
+        settings = new JButton("SETTINGS");
+        license = new JButton("LICENSE");
+
 
         start.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
         reset.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
         settings.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
         license.setPreferredSize(new Dimension(BUTTON_WIDTH,BUTTON_HEIGHT));
         
-        start.setBackground(Color.LIGHT_GRAY);
-        reset.setBackground(Color.LIGHT_GRAY);
-        settings.setBackground(Color.LIGHT_GRAY);
-        license.setBackground(Color.LIGHT_GRAY);
+        start.setBackground(BUTTON_COLOR);
+        reset.setBackground(BUTTON_COLOR);
+        settings.setBackground(BUTTON_COLOR);
+        license.setBackground(BUTTON_COLOR);
+
+        start.setFocusPainted(false);
+        reset.setFocusPainted(false);
+        settings.setFocusPainted(false);
+        license.setFocusPainted(false);
 
         start.addActionListener(this);
         reset.addActionListener(this);
+
 
         add(start);
         add(reset);
