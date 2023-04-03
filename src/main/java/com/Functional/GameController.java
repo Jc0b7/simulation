@@ -24,8 +24,8 @@ public class GameController {
         Obstacle.setPosition();
     }
     public static void startMove() {
-        Human.startMove();
         Zombie.startMove();
+        Human.startMove();
     }
     public static void stopMove() {
         Human.stopMove();
