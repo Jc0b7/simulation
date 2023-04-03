@@ -77,7 +77,33 @@ public class Zombie {
                         case 8 -> {
                             newY[i] = y.get(i);
                             newX[i] = 1 + x.get(i);
+
                         }
+                    }
+                    if(Human.getX() == x.get(i) + 1 && Human.getY() == y.get(i) + 1) {
+                        newY[i] = 1 + y.get(i);
+                        newX[i] = 1 + x.get(i);
+                    } else if (Human.getX() == x.get(i) - 1 && Human.getY() == y.get(i) - 1) {
+                        newY[i] = -1 + y.get(i);
+                        newX[i] = -1 + x.get(i);
+                    } else if (Human.getX() == x.get(i) + 1 && Human.getY() == y.get(i)) {
+                        newY[i] = y.get(i);
+                        newX[i] = 1 + x.get(i);
+                    } else if (Human.getX() == x.get(i) && Human.getY() == y.get(i) + 1) {
+                        newY[i] = 1 + y.get(i);
+                        newX[i] = x.get(i);
+                    } else if (Human.getX() == x.get(i) - 1 && Human.getY() == y.get(i)) {
+                        newY[i] = y.get(i);
+                        newX[i] = -1 + x.get(i);
+                    } else if (Human.getX() == x.get(i)  && Human.getY() == y.get(i) - 1) {
+                        newY[i] = -1 + y.get(i);
+                        newX[i] = x.get(i);
+                    } else if (Human.getX() == x.get(i) + 1 && Human.getY() == y.get(i) - 1) {
+                        newY[i] = -1 + y.get(i);
+                        newX[i] = 1 + x.get(i);
+                    } else if (Human.getX() == x.get(i) - 1 && Human.getY() == y.get(i) + 1) {
+                        newY[i] = 1 + y.get(i);
+                        newX[i] = -1 + x.get(i);
                     }
                 } while (GamePanel.checkOutOfBorder(newX[i], newY[i]));
             } while (GamePanel.checkPosition(newX[i], newY[i], Human.getHumanColor()));
