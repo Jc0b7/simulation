@@ -1,0 +1,19 @@
+Index: src/main/java/com/Functional/GameController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.Functional;\r\n\r\npublic class GameController {\r\n\r\n\r\n    public GameController() {\r\n\r\n    }\r\n\r\n    public static void restart() {\r\n\r\n    }\r\n\r\n    public static void startMove() {\r\n\r\n    }\r\n\r\n    public static void stopMove() {\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/Functional/GameController.java b/src/main/java/com/Functional/GameController.java
+--- a/src/main/java/com/Functional/GameController.java	(revision 7fd337e7c78e987d084ff60e5aa804d29a163009)
++++ b/src/main/java/com/Functional/GameController.java	(date 1680987291226)
+@@ -3,7 +3,7 @@
+ public class GameController {
+ 
+ 
+-    public GameController() {
++    private GameController() {
+ 
+     }
+ 

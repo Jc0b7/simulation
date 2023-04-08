@@ -2,19 +2,26 @@ package com.Functional;
 
 public class GameController {
 
+    private static GameController instance = null;
 
-    public GameController() {
+    public static GameController getInstance() {
+        if (instance == null) {
+            instance = new GameController();
+        }
+        return instance;
+    }
+
+    private GameController() {
+    }
+
+    public void restart() {
 
     }
 
-    public static void restart() {
+    public void startMove() {
 
     }
 
-    public static void startMove() {
-
-    }
-
-    public static void stopMove() {
+    public void stopMove() {
     }
 }

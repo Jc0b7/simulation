@@ -55,12 +55,13 @@ public class MenuButtons extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        GameController game = GameController.getInstance();
         if (e.getSource() == reset) {
-            GameController.restart();
+            game.restart();
         } else if (e.getSource() == settings) {
         } else if (e.getSource() == license) {
         } else if (e.getSource() == start) {
-            GameController.startMove();
+            game.startMove();
         }
     }
 }
