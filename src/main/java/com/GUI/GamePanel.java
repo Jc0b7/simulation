@@ -1,7 +1,5 @@
 package com.GUI;
 
-import com.DynamicObjects.Human;
-
 import javax.swing.*;
 import java.awt.*;
 

@@ -1,0 +1,321 @@
+Index: src/main/java/com/DynamicObjects/Object.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/DynamicObjects/Object.java b/src/main/java/com/DynamicObjects/Object.java
+new file mode 100644
+--- /dev/null	(date 1680986581008)
++++ b/src/main/java/com/DynamicObjects/Object.java	(date 1680986581008)
+@@ -0,0 +1,76 @@
++package com.DynamicObjects;
++
++import javax.swing.*;
++import java.util.Random;
++
++public abstract class Object {
++    protected int x;
++    protected int y;
++    protected int damage;    protected int hp;
++    protected int gold;
++    protected int amount;
++    protected int velocity;
++    protected ImageIcon icon;
++    protected Timer action;
++    protected final Random random = new Random();
++
++    public void setDamage(int damage) {
++        this.damage = damage;
++    }
++
++    public void setHp(int hp) {
++        this.hp = hp;
++    }
++
++    public void setAmount(int amount) {
++        this.amount = amount;
++    }
++
++    public void setGold(int gold) {
++        this.gold = gold;
++    }
++
++    public void setVelocity(int velocity) {
++        this.velocity = velocity;
++    }
++
++    public void setIcon(ImageIcon icon) {
++        this.icon = icon;
++    }
++
++    public int getDamage() {
++        return damage;
++    }
++
++    public int getAmount() {
++        return amount;
++    }
++
++    public int getGold() {
++        return gold;
++    }
++
++    public int getHp() {
++        return hp;
++    }
++
++    public int getX() {
++        return x;
++    }
++
++    public int getY() {
++        return y;
++    }
++
++    public ImageIcon getIcon() {
++        return icon;
++    }
++
++    public abstract void move();
++
++    public abstract void setPosition();
++
++    public abstract void start();
++
++    public abstract void stop();
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e3d9b11f-7ad4-469d-91e3-36a97a25f053\" name=\"Changes\" comment=\"v0.1.0\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/DynamicObjects/Zombie.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/DynamicObjects/Zombie.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Nk2yD9eY8Fkbtm44rqtpDmTjhw\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jakub/IdeaProjects/LastExistence&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e3d9b11f-7ad4-469d-91e3-36a97a25f053\" name=\"Changes\" comment=\"\" />\r\n      <created>1680194012963</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1680194012963</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"v0.0.1\">\r\n      <created>1680198970296</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680198970296</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"v0.0.1\">\r\n      <created>1680200878398</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680200878398</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"v0.0.1\">\r\n      <created>1680201053572</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680201053572</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"v0.0.2\">\r\n      <created>1680264290765</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680264290765</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"v0.0.2\">\r\n      <created>1680268244797</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680268244797</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"v0.0.3\">\r\n      <created>1680268575563</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680268575563</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.History.Properties\">\r\n    <option name=\"COLUMN_ID_ORDER\">\r\n      <list>\r\n        <option value=\"Default.Root\" />\r\n        <option value=\"Default.Author\" />\r\n        <option value=\"Default.Date\" />\r\n        <option value=\"Default.Subject\" />\r\n        <option value=\"Space.CommitStatus\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"v0.0.1\" />\r\n    <MESSAGE value=\"v0.0.2\" />\r\n    <MESSAGE value=\"v0.0.3\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"v0.0.3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 078d7cb5dddaf7c0e3045c8ad40fe3389971dbea)
++++ b/.idea/workspace.xml	(date 1680986607054)
+@@ -4,9 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.1.0">
++    <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.2.0">
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Object.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Zombie.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -17,6 +17,23 @@
+     <projectState path="$PROJECT_DIR$">
+       <ProjectState />
+     </projectState>
++  </component>
++  <component name="ExternalProjectsManager">
++    <system id="GRADLE">
++      <state>
++        <projects_view>
++          <tree_state>
++            <expand>
++              <path>
++                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
++                <item name="LastExistence" type="f1a62948:ProjectNode" />
++              </path>
++            </expand>
++            <select />
++          </tree_state>
++        </projects_view>
++      </state>
++    </system>
+   </component>
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+@@ -28,7 +45,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
++        <entry key="$PROJECT_DIR$" value="repare" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -101,7 +118,126 @@
+       <option name="project" value="LOCAL" />
+       <updated>1680268575563</updated>
+     </task>
+-    <option name="localTasksCounter" value="7" />
++    <task id="LOCAL-00007" summary="v0.1.0">
++      <created>1680290009748</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1680290009748</updated>
++    </task>
++    <task id="LOCAL-00008" summary="v0.1.0">
++      <created>1680294389256</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1680294389256</updated>
++    </task>
++    <task id="LOCAL-00009" summary="v0.1.0">
++      <created>1680294505256</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1680294505256</updated>
++    </task>
++    <task id="LOCAL-00010" summary="v0.1.1">
++      <created>1680296007480</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1680296007480</updated>
++    </task>
++    <task id="LOCAL-00011" summary="v0.1.2">
++      <created>1680297694075</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1680297694075</updated>
++    </task>
++    <task id="LOCAL-00012" summary="v0.1.2">
++      <created>1680345176607</created>
++      <option name="number" value="00012" />
++      <option name="presentableId" value="LOCAL-00012" />
++      <option name="project" value="LOCAL" />
++      <updated>1680345176607</updated>
++    </task>
++    <task id="LOCAL-00013" summary="v0.1.3">
++      <created>1680345842580</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1680345842580</updated>
++    </task>
++    <task id="LOCAL-00014" summary="v0.1.3">
++      <created>1680347221219</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1680347221219</updated>
++    </task>
++    <task id="LOCAL-00015" summary="v0.1.3">
++      <created>1680382535267</created>
++      <option name="number" value="00015" />
++      <option name="presentableId" value="LOCAL-00015" />
++      <option name="project" value="LOCAL" />
++      <updated>1680382535267</updated>
++    </task>
++    <task id="LOCAL-00016" summary="v0.1.3">
++      <created>1680466894455</created>
++      <option name="number" value="00016" />
++      <option name="presentableId" value="LOCAL-00016" />
++      <option name="project" value="LOCAL" />
++      <updated>1680466894455</updated>
++    </task>
++    <task id="LOCAL-00017" summary="v0.1.3">
++      <created>1680469498749</created>
++      <option name="number" value="00017" />
++      <option name="presentableId" value="LOCAL-00017" />
++      <option name="project" value="LOCAL" />
++      <updated>1680469498749</updated>
++    </task>
++    <task id="LOCAL-00018" summary="v0.1.3">
++      <created>1680472551529</created>
++      <option name="number" value="00018" />
++      <option name="presentableId" value="LOCAL-00018" />
++      <option name="project" value="LOCAL" />
++      <updated>1680472551529</updated>
++    </task>
++    <task id="LOCAL-00019" summary="v0.1.4">
++      <created>1680515918465</created>
++      <option name="number" value="00019" />
++      <option name="presentableId" value="LOCAL-00019" />
++      <option name="project" value="LOCAL" />
++      <updated>1680515918465</updated>
++    </task>
++    <task id="LOCAL-00020" summary="v0.1.4">
++      <created>1680515931309</created>
++      <option name="number" value="00020" />
++      <option name="presentableId" value="LOCAL-00020" />
++      <option name="project" value="LOCAL" />
++      <updated>1680515931309</updated>
++    </task>
++    <task id="LOCAL-00021" summary="v0.2.0">
++      <created>1680517570009</created>
++      <option name="number" value="00021" />
++      <option name="presentableId" value="LOCAL-00021" />
++      <option name="project" value="LOCAL" />
++      <updated>1680517570009</updated>
++    </task>
++    <task id="LOCAL-00022" summary="v0.2.0">
++      <created>1680523329385</created>
++      <option name="number" value="00022" />
++      <option name="presentableId" value="LOCAL-00022" />
++      <option name="project" value="LOCAL" />
++      <updated>1680523329385</updated>
++    </task>
++    <task id="LOCAL-00023" summary="v0.2.0">
++      <created>1680537754488</created>
++      <option name="number" value="00023" />
++      <option name="presentableId" value="LOCAL-00023" />
++      <option name="project" value="LOCAL" />
++      <updated>1680537754488</updated>
++    </task>
++    <option name="localTasksCounter" value="24" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.History.Properties">
+@@ -123,6 +259,36 @@
+             <State />
+           </value>
+         </entry>
++        <entry key="bb776718-8349-4b1c-a628-4b6b1687bb6b">
++          <value>
++            <State>
++              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="HEAD" />
++                      </list>
++                    </value>
++                  </entry>
++                  <entry key="roots">
++                    <value>
++                      <list>
++                        <option value="$PROJECT_DIR$" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="OPEN_GENERIC_TABS">
++      <map>
++        <entry key="bb776718-8349-4b1c-a628-4b6b1687bb6b" value="TOOL_WINDOW" />
+       </map>
+     </option>
+   </component>
+@@ -130,6 +296,12 @@
+     <MESSAGE value="v0.0.1" />
+     <MESSAGE value="v0.0.2" />
+     <MESSAGE value="v0.0.3" />
+-    <option name="LAST_COMMIT_MESSAGE" value="v0.0.3" />
++    <MESSAGE value="v0.1.0" />
++    <MESSAGE value="v0.1.1" />
++    <MESSAGE value="v0.1.2" />
++    <MESSAGE value="v0.1.3" />
++    <MESSAGE value="v0.1.4" />
++    <MESSAGE value="v0.2.0" />
++    <option name="LAST_COMMIT_MESSAGE" value="v0.2.0" />
+   </component>
+ </project>
+\ No newline at end of file
