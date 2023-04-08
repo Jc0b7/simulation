@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.1.0">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Zombie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StaticObjects/Obstacle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StaticObjects/Structure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StaticObjects/Weapon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StaticObjects/structures/Camp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StaticObjects/structures/City.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StaticObjects/weapons/Machete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StaticObjects/weapons/Pistol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StaticObjects/weapons/Shotgun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680988898840</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="v0.1.0">
+      <created>1680989273128</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1680989273128</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
