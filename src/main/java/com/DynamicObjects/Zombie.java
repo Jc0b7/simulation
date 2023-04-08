@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Zombie extends Object implements ActionListener {
+public class Zombie extends Entity implements ActionListener {
 
     public Zombie(int dmg, int hp) {
         setDmg(dmg);

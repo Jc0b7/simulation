@@ -3,7 +3,7 @@ package com.DynamicObjects;
 import javax.swing.*;
 import java.util.Random;
 
-public abstract class Object {
+public abstract class Entity {
     protected int x;
     protected int y;
     protected int dmg;

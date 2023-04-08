@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Human extends Object implements ActionListener {
+public class Human extends Entity implements ActionListener {
 
     public Human(int dmg, int hp) {
         setDmg(dmg);
