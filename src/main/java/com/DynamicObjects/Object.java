@@ -15,8 +15,11 @@ public abstract class Object {
     protected Timer action;
 
     abstract public void setPosition();
+
     abstract public void move();
+
     abstract public void start();
+
     abstract public void stop();
 
     public int getX() {
