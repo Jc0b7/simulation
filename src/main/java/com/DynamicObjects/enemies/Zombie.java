@@ -1,4 +1,6 @@
-package com.DynamicObjects;
+package com.DynamicObjects.enemies;
+
+import com.DynamicObjects.Entity;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
