@@ -30,7 +30,6 @@ public class GameController implements ActionListener {
     }
 
     public void collision() {
-        chase();
         for (int i = 0; i < humanAmount; i++) {
             for (int j = 0; j < zombieAmount; j++) {
                 if (human.get(i).getX() == entities.get(j).getX() && human.get(i).getY() == entities.get(j).getY()) {

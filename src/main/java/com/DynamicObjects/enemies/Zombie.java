@@ -44,36 +44,36 @@ public class Zombie extends Entity implements ActionListener {
                 choice = random.nextInt(8) + 1;
                 switch (choice) {
                     case 1 -> {
-                        changeX = getX() + 1;
-                        changeY = getY() + 1;
+                        setChangeX(getX() + 1);
+                        setChangeY(getY() + 1);
                     }
                     case 2 -> {
-                        changeX = getX() - 1;
-                        changeY = getY() - 1;
+                        setChangeX(getX() - 1);
+                        setChangeY(getY() - 1);
                     }
                     case 3 -> {
-                        changeX = getX();
-                        changeY = getY() + 1;
+                        setChangeX(getX());
+                        setChangeY(getY() + 1);
                     }
                     case 4 -> {
-                        changeX = getX() + 1;
-                        changeY = getY();
+                        setChangeX(getX() + 1);
+                        setChangeY(getY());
                     }
                     case 5 -> {
-                        changeX = getX() - 1;
-                        changeY = getY();
+                        setChangeX(getX() - 1);
+                        setChangeY(getY());
                     }
                     case 6 -> {
-                        changeX = getX();
-                        changeY = getY() - 1;
+                        setChangeX(getX());
+                        setChangeY(getY() - 1);
                     }
                     case 7 -> {
-                        changeX = getX() + 1;
-                        changeY = getY() - 1;
+                        setChangeX(getX() + 1);
+                        setChangeY(getY() - 1);
                     }
                     case 8 -> {
-                        changeX = getX() - 1;
-                        changeY = getY() + 1;
+                        setChangeX(getX() - 1);
+                        setChangeY(getY() + 1);
                     }
                 }
             } while (GamePanel.checkOutOfBorder(changeX, changeY));
