@@ -20,6 +20,8 @@ public abstract class Entity {
 
     abstract public void move();
 
+    public abstract void moveToEnemy();
+
     abstract public void start();
 
     abstract public void stop();
@@ -42,6 +44,14 @@ public abstract class Entity {
 
     public int getDmg() {
         return dmg;
+    }
+
+    public int getChangeX() {
+        return changeX;
+    }
+
+    public int getChangeY() {
+        return changeY;
     }
 
     public void setX(int x) {

@@ -46,29 +46,53 @@ public class GameController implements ActionListener {
         for (int i = 0; i < humanAmount; i++) {
             for (int j = 0; j < zombieAmount; j++) {
                 if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY() + 1) {
-                    entities.get(j).setChangeX(human.get(i).getX() + 1);
-                    entities.get(j).setChangeY(human.get(i).getY() + 1);
+                    entities.get(j).stop();
+                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
+                    entities.remove(j);
+                    System.out.println(entities.size());
+                    zombieAmount--;
                 } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY() - 1) {
-                    entities.get(j).setChangeX(human.get(i).getX() - 1);
-                    entities.get(j).setChangeY(human.get(i).getY() - 1);
+                    entities.get(j).stop();
+                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
+                    entities.remove(j);
+                    System.out.println(entities.size());
+                    zombieAmount--;
                 } else if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY() - 1) {
-                    entities.get(j).setChangeX(human.get(i).getX());
-                    entities.get(j).setChangeY(human.get(i).getY());
+                    entities.get(j).stop();
+                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
+                    entities.remove(j);
+                    System.out.println(entities.size());
+                    zombieAmount--;
                 } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY() + 1) {
-                    entities.get(j).setChangeX(human.get(i).getX() - 1);
-                    entities.get(j).setChangeY(human.get(i).getY() + 1);
+                    entities.get(j).stop();
+                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
+                    entities.remove(j);
+                    System.out.println(entities.size());
+                    zombieAmount--;
                 } else if (human.get(i).getX() == entities.get(j).getX() && human.get(i).getY() == entities.get(j).getY() - 1) {
-                    entities.get(j).setChangeX(human.get(i).getX());
-                    entities.get(j).setChangeY(human.get(i).getY() - 1);
+                    entities.get(j).stop();
+                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
+                    entities.remove(j);
+                    System.out.println(entities.size());
+                    zombieAmount--;
                 } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY()) {
-                    entities.get(j).setChangeX(human.get(i).getX() - 1);
-                    entities.get(j).setChangeY(human.get(i).getY());
+                    entities.get(j).stop();
+                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
+                    entities.remove(j);
+                    System.out.println(entities.size());
+                    zombieAmount--;
                 } else if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY()) {
-                    entities.get(j).setChangeX(human.get(i).getX() + 1);
-                    entities.get(j).setChangeY(human.get(i).getY());
+                    entities.get(j).stop();
+                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
+                    entities.remove(j);
+                    System.out.println(entities.size());
+                    zombieAmount--;
                 } else if (human.get(i).getX() == entities.get(j).getX() && human.get(i).getY() == entities.get(j).getY() + 1) {
-                    entities.get(j).setChangeX(human.get(i).getX());
-                    entities.get(j).setChangeY(human.get(i).getY() + 1);
+                    entities.get(j).stop();
+                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
+                    entities.remove(j);
+                    System.out.println(entities.size());
+                    zombieAmount--;
                 }
             }
         }
@@ -115,5 +139,6 @@ public class GameController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         collision();
+        chase();
     }
 }

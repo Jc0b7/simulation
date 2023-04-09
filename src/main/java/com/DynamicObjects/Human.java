@@ -16,7 +16,7 @@ public class Human extends Entity implements ActionListener {
     public Human(int dmg, int hp) {
         setDmg(dmg);
         setHp(hp);
-        setVelocity(375);
+        setVelocity(500);
         setGold(100);
         action = new Timer(velocity, this);
     }
@@ -82,6 +82,11 @@ public class Human extends Entity implements ActionListener {
         setX(newX);
         setY(newY);
         GamePanel.setObject(getX(), getY(), HUMAN);
+    }
+
+    @Override
+    public void moveToEnemy() {
+
     }
 
     public static Color getHUMAN() {
