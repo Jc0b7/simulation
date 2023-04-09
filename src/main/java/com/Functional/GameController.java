@@ -4,10 +4,18 @@ import com.DynamicObjects.*;
 import com.DynamicObjects.enemies.*;
 import com.GUI.GamePanel;
 
-public class GameController {
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-    private final Human[] human = new Human[3];
-    private final Entity[] entities = new Entity[6];
+public class GameController implements ActionListener {
+
+    private int zombieAmount = 5;
+    private int humanAmount = 1;
+    private ArrayList<Human> human = new ArrayList<>(humanAmount);
+    private ArrayList<Entity> entities = new ArrayList<>(zombieAmount);
+    private final Timer timer = new Timer(0, this);
     private static GameController instance = null;
 
     public static GameController getInstance() {
@@ -18,42 +26,95 @@ public class GameController {
     }
 
     private GameController() {
-        for (int i = 0; i < 3; i++) {
-            human[i] = new Human(0, 100);
-            human[i].setPosition();
+        start();
+    }
+
+    public void collision() {
+        chase();
+        for (int i = 0; i < humanAmount; i++) {
+            for (int j = 0; j < zombieAmount; j++) {
+                if (human.get(i).getX() == entities.get(j).getX() && human.get(i).getY() == entities.get(j).getY()) {
+                    entities.get(j).stop();
+                    entities.remove(j);
+                    System.out.println(entities.size());
+                    zombieAmount--;
+                }
+            }
         }
-        for (int i = 0; i < 6; i++) {
-            entities[i] = new Zombie(0, 0);
-            entities[i].setPosition();
+    }
+
+    public void chase() {
+        for (int i = 0; i < humanAmount; i++) {
+            for (int j = 0; j < zombieAmount; j++) {
+                if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY() + 1) {
+                    entities.get(j).setX(human.get(i).getX());
+                    entities.get(j).setY(human.get(i).getY());
+                } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY() - 1) {
+                    entities.get(j).setX(human.get(i).getX());
+                    entities.get(j).setY(human.get(i).getY());
+                } else if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY() - 1) {
+                    entities.get(j).setX(human.get(i).getX());
+                    entities.get(j).setY(human.get(i).getY());
+                } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY() + 1) {
+                    entities.get(j).setX(human.get(i).getX());
+                    entities.get(j).setY(human.get(i).getY());
+                } else if (human.get(i).getX() == entities.get(j).getX() && human.get(i).getY() == entities.get(j).getY() - 1) {
+                    entities.get(j).setX(human.get(i).getX());
+                    entities.get(j).setY(human.get(i).getY());
+                } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY()) {
+                    entities.get(j).setX(human.get(i).getX());
+                    entities.get(j).setY(human.get(i).getY());
+                } else if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY()) {
+                    entities.get(j).setX(human.get(i).getX());
+                    entities.get(j).setY(human.get(i).getY());
+                } else if (human.get(i).getX() == entities.get(j).getX() && human.get(i).getY() == entities.get(j).getY() + 1) {
+                    entities.get(j).setX(human.get(i).getX());
+                    entities.get(j).setY(human.get(i).getY());
+                }
+            }
         }
     }
 
     public void restart() {
         stopMove();
         GamePanel.resetBoard();
-        for (int i = 0; i < 3; i++) {
-            human[i].setPosition();
+        start();
+    }
+
+    public void start() {
+        for (int i = 0; i < humanAmount; i++) {
+            human.add(new Human(10, 100));
+            human.get(i).setPosition();
         }
-        for (int i = 0; i < 6; i++) {
-            entities[i].setPosition();
+        zombieAmount = 5;
+        for (int i = 0; i < zombieAmount; i++) {
+            entities.add(new Zombie(0, 0));
+            entities.get(i).setPosition();
         }
     }
 
     public void startMove() {
-        for (int i = 0; i < 3; i++) {
-            human[i].start();
+        for (int i = 0; i < humanAmount; i++) {
+            human.get(i).start();
         }
-        for (int i = 0; i < 6; i++) {
-            entities[i].start();
+        for (int i = 0; i < zombieAmount; i++) {
+            entities.get(i).start();
         }
+        timer.start();
     }
 
     public void stopMove() {
-        for (int i = 0; i < 3; i++) {
-            human[i].stop();
+        for (int i = 0; i < humanAmount; i++) {
+            human.get(i).stop();
         }
-        for (int i = 0; i < 6; i++) {
-            entities[i].stop();
+        for (int i = 0; i < zombieAmount; i++) {
+            entities.get(i).stop();
         }
+        timer.stop();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        collision();
     }
 }

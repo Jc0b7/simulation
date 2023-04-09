@@ -1,6 +1,7 @@
 package com.DynamicObjects.enemies;
 
 import com.DynamicObjects.Entity;
+import com.DynamicObjects.Human;
 import com.GUI.GamePanel;
 
 import javax.swing.*;
@@ -10,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class Zombie extends Entity implements ActionListener {
 
-    private final Color ZOMBIE = Color.green;
+    private static final Color ZOMBIE = Color.green;
 
     public Zombie(int dmg, int hp) {
         setDmg(dmg);
@@ -77,7 +78,7 @@ public class Zombie extends Entity implements ActionListener {
                     }
                 }
             } while (GamePanel.checkOutOfBorder(newX, newY));
-        } while (GamePanel.checkPosition(newX, newY));
+        } while (GamePanel.checkPosition(newX, newY, Human.getHUMAN()));
         GamePanel.setObject(getX(), getY(), GamePanel.getBoardColor());
         setX(newX);
         setY(newY);
@@ -97,5 +98,9 @@ public class Zombie extends Entity implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         move();
+    }
+
+    public static Color getZOMBIE() {
+        return ZOMBIE;
     }
 }
