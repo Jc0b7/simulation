@@ -6,6 +6,8 @@ import java.util.Random;
 public abstract class Entity {
     protected int x;
     protected int y;
+    protected int changeX;
+    protected int changeY;
     protected int dmg;
     protected int hp;
     protected int gold;
@@ -56,6 +58,14 @@ public abstract class Entity {
 
     public void setDmg(int dmg) {
         this.dmg = dmg;
+    }
+
+    public void setChangeX(int changeX) {
+        this.changeX = changeX;
+    }
+
+    public void setChangeY(int changeY) {
+        this.changeY = changeY;
     }
 
     public void setVelocity(int velocity) {

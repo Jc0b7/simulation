@@ -47,29 +47,29 @@ public class GameController implements ActionListener {
         for (int i = 0; i < humanAmount; i++) {
             for (int j = 0; j < zombieAmount; j++) {
                 if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY() + 1) {
-                    entities.get(j).setX(human.get(i).getX());
-                    entities.get(j).setY(human.get(i).getY());
+                    entities.get(j).setChangeX(human.get(i).getX() + 1);
+                    entities.get(j).setChangeY(human.get(i).getY() + 1);
                 } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY() - 1) {
-                    entities.get(j).setX(human.get(i).getX());
-                    entities.get(j).setY(human.get(i).getY());
+                    entities.get(j).setChangeX(human.get(i).getX() - 1);
+                    entities.get(j).setChangeY(human.get(i).getY() - 1);
                 } else if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY() - 1) {
-                    entities.get(j).setX(human.get(i).getX());
-                    entities.get(j).setY(human.get(i).getY());
+                    entities.get(j).setChangeX(human.get(i).getX());
+                    entities.get(j).setChangeY(human.get(i).getY());
                 } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY() + 1) {
-                    entities.get(j).setX(human.get(i).getX());
-                    entities.get(j).setY(human.get(i).getY());
+                    entities.get(j).setChangeX(human.get(i).getX() - 1);
+                    entities.get(j).setChangeY(human.get(i).getY() + 1);
                 } else if (human.get(i).getX() == entities.get(j).getX() && human.get(i).getY() == entities.get(j).getY() - 1) {
-                    entities.get(j).setX(human.get(i).getX());
-                    entities.get(j).setY(human.get(i).getY());
+                    entities.get(j).setChangeX(human.get(i).getX());
+                    entities.get(j).setChangeY(human.get(i).getY() - 1);
                 } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY()) {
-                    entities.get(j).setX(human.get(i).getX());
-                    entities.get(j).setY(human.get(i).getY());
+                    entities.get(j).setChangeX(human.get(i).getX() - 1);
+                    entities.get(j).setChangeY(human.get(i).getY());
                 } else if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY()) {
-                    entities.get(j).setX(human.get(i).getX());
-                    entities.get(j).setY(human.get(i).getY());
+                    entities.get(j).setChangeX(human.get(i).getX() + 1);
+                    entities.get(j).setChangeY(human.get(i).getY());
                 } else if (human.get(i).getX() == entities.get(j).getX() && human.get(i).getY() == entities.get(j).getY() + 1) {
-                    entities.get(j).setX(human.get(i).getX());
-                    entities.get(j).setY(human.get(i).getY());
+                    entities.get(j).setChangeX(human.get(i).getX());
+                    entities.get(j).setChangeY(human.get(i).getY() + 1);
                 }
             }
         }

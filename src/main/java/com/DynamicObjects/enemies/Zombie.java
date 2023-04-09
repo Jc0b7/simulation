@@ -38,50 +38,49 @@ public class Zombie extends Entity implements ActionListener {
 
     @Override
     public void move() {
-        int newX = 0, newY = 0;
         int choice;
         do {
             do {
                 choice = random.nextInt(8) + 1;
                 switch (choice) {
                     case 1 -> {
-                        newX = getX() + 1;
-                        newY = getY() + 1;
+                        changeX = getX() + 1;
+                        changeY = getY() + 1;
                     }
                     case 2 -> {
-                        newX = getX() - 1;
-                        newY = getY() - 1;
+                        changeX = getX() - 1;
+                        changeY = getY() - 1;
                     }
                     case 3 -> {
-                        newX = getX();
-                        newY = getY() + 1;
+                        changeX = getX();
+                        changeY = getY() + 1;
                     }
                     case 4 -> {
-                        newX = getX() + 1;
-                        newY = getY();
+                        changeX = getX() + 1;
+                        changeY = getY();
                     }
                     case 5 -> {
-                        newX = getX() - 1;
-                        newY = getY();
+                        changeX = getX() - 1;
+                        changeY = getY();
                     }
                     case 6 -> {
-                        newX = getX();
-                        newY = getY() - 1;
+                        changeX = getX();
+                        changeY = getY() - 1;
                     }
                     case 7 -> {
-                        newX = getX() + 1;
-                        newY = getY() - 1;
+                        changeX = getX() + 1;
+                        changeY = getY() - 1;
                     }
                     case 8 -> {
-                        newX = getX() - 1;
-                        newY = getY() + 1;
+                        changeX = getX() - 1;
+                        changeY = getY() + 1;
                     }
                 }
-            } while (GamePanel.checkOutOfBorder(newX, newY));
-        } while (GamePanel.checkPosition(newX, newY, Human.getHUMAN()));
+            } while (GamePanel.checkOutOfBorder(changeX, changeY));
+        } while (GamePanel.checkPosition(changeX, changeY, Human.getHUMAN()));
         GamePanel.setObject(getX(), getY(), GamePanel.getBoardColor());
-        setX(newX);
-        setY(newY);
+        setX(changeX);
+        setY(changeY);
         GamePanel.setObject(getX(), getY(), ZOMBIE);
     }
 
