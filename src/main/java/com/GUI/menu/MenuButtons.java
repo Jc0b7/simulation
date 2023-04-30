@@ -61,6 +61,7 @@ public class MenuButtons extends JPanel implements ActionListener {
             game.restart();
         } else if (e.getSource() == settings) {
             new Settings();
+            game.stopMove();
         } else if (e.getSource() == license) {
         } else if (e.getSource() == start) {
             game.startMove();
