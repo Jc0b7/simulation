@@ -1,10 +1,12 @@
 package com.GUI;
 
+import com.GUI.menu.Settings;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel {
-    private static final int boardSize = 9;
+    private static int boardSize = 8;
     private static final Color boardColor = Color.white;
     private static final JButton[][] board = new JButton[boardSize][boardSize];
     private final int SCREEN_WIDTH = 1000;
@@ -56,5 +58,9 @@ public class GamePanel extends JPanel {
                 board[i][j].setIcon(null);
             }
         }
+    }
+
+    public static void setBoardSize(int boardSize) {
+        GamePanel.boardSize = boardSize;
     }
 }

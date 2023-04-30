@@ -3,6 +3,7 @@ package com.Functional;
 import com.DynamicObjects.*;
 import com.DynamicObjects.enemies.*;
 import com.GUI.GamePanel;
+import com.GUI.menu.Settings;
 import com.StaticObjects.Obstacle;
 
 import javax.swing.*;
@@ -12,9 +13,9 @@ import java.util.ArrayList;
 
 public class GameController {
 
-    private int obstacleAmount = 8;
+    private static int obstacleAmount = 8;
     private static int zombieAmount = 5;
-    private static int humanAmount = 1;
+    private static int humanAmount = 2;
     private ArrayList<Human> human = new ArrayList<>();
     private ArrayList<Entity> entities = new ArrayList<>();
     private ArrayList<Obstacle> obstacles = new ArrayList<>();
@@ -69,5 +70,13 @@ public class GameController {
         for (int i = 0; i < zombieAmount; i++) {
             entities.get(i).stop();
         }
+    }
+
+    public static void setHumanAmount(int humanAmount) {
+        GameController.humanAmount = humanAmount;
+    }
+
+    public static void setObstacleAmount(int obstacleAmount) {
+        GameController.obstacleAmount = obstacleAmount;
     }
 }
