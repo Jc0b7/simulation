@@ -20,8 +20,6 @@ public abstract class Entity {
 
     abstract public void move();
 
-    public abstract void moveToEnemy();
-
     abstract public void start();
 
     abstract public void stop();

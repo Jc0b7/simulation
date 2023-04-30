@@ -16,10 +16,6 @@ public class Bandit extends Entity implements ActionListener {
 
     }
 
-    @Override
-    public void moveToEnemy() {
-
-    }
 
     @Override
     public void start() {

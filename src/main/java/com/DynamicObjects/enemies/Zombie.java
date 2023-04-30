@@ -83,13 +83,6 @@ public class Zombie extends Entity implements ActionListener {
         setY(changeY);
         GamePanel.setObject(getX(), getY(), ZOMBIE);
     }
-    @Override
-    public void moveToEnemy() {
-        GamePanel.setObject(getX(), getY(), GamePanel.getBoardColor());
-        setX(changeX);
-        setY(changeY);
-        GamePanel.setObject(getX(), getY(), ZOMBIE);
-    }
 
     @Override
     public void start() {

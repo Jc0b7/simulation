@@ -1,0 +1,337 @@
+Index: src/main/java/com/Functional/GameController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.Functional;\r\n\r\nimport com.DynamicObjects.Human;\r\nimport com.DynamicObjects.Zombie;\r\nimport com.GUI.GamePanel;\r\nimport com.StaticObjects.Obstacle;\r\n\r\npublic class GameController {\r\n\r\n\r\n    public GameController() {\r\n        new Human();\r\n        new Zombie();\r\n        new Obstacle();\r\n    }\r\n\r\n    public static void restart() {\r\n        GamePanel.resetBoard();\r\n        stopMove();\r\n        Human.setPosition();\r\n        Zombie.setPosition();\r\n        Obstacle.setPosition();\r\n    }\r\n\r\n    public static void startMove() {\r\n        Zombie.startMove();\r\n        Human.startMove();\r\n    }\r\n\r\n    public static void stopMove() {\r\n        Human.stopMove();\r\n        Zombie.stopMove();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/Functional/GameController.java b/src/main/java/com/Functional/GameController.java
+--- a/src/main/java/com/Functional/GameController.java	(revision 7d5552518ed1470efedeec95e8880698d9b1379d)
++++ b/src/main/java/com/Functional/GameController.java	(date 1682513407690)
+@@ -1,34 +1,144 @@
+ package com.Functional;
+ 
+-import com.DynamicObjects.Human;
+-import com.DynamicObjects.Zombie;
++import com.DynamicObjects.*;
++import com.DynamicObjects.enemies.*;
+ import com.GUI.GamePanel;
+-import com.StaticObjects.Obstacle;
++
++import javax.swing.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++import java.util.ArrayList;
++
++public class GameController implements ActionListener {
++
++    private int zombieAmount = 5;
++    private int humanAmount = 1;
++    private ArrayList<Human> human = new ArrayList<>(humanAmount);
++    private ArrayList<Entity> entities = new ArrayList<>(zombieAmount);
++    private final Timer timer = new Timer(0, this);
++    private static GameController instance = null;
+ 
+-public class GameController {
++    public static GameController getInstance() {
++        if (instance == null) {
++            instance = new GameController();
++        }
++        return instance;
++    }
++
++    private GameController() {
++        start();
++    }
+ 
++    public void collision() {
++        for (int i = 0; i < humanAmount; i++) {
++            for (int j = 0; j < zombieAmount; j++) {
++                if (human.get(i).getX() == entities.get(j).getX() && human.get(i).getY() == entities.get(j).getY()) {
++                    entities.get(j).stop();
++                    entities.remove(j);
++                    System.out.println(entities.size());
++                    zombieAmount--;
++                }
++            }
++        }
++    }
+ 
+-    public GameController() {
+-        new Human();
+-        new Zombie();
+-        new Obstacle();
++    public void chase() {
++        for (int i = 0; i < humanAmount; i++) {
++            for (int j = 0; j < zombieAmount; j++) {
++                if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY() + 1) {
++                    entities.get(j).stop();
++                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
++                    entities.remove(j);
++                    System.out.println(entities.size());
++                    zombieAmount--;
++                } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY() - 1) {
++                    entities.get(j).stop();
++                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
++                    entities.remove(j);
++                    System.out.println(entities.size());
++                    zombieAmount--;
++                } else if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY() - 1) {
++                    entities.get(j).stop();
++                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
++                    entities.remove(j);
++                    System.out.println(entities.size());
++                    zombieAmount--;
++                } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY() + 1) {
++                    entities.get(j).stop();
++                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
++                    entities.remove(j);
++                    System.out.println(entities.size());
++                    zombieAmount--;
++                } else if (human.get(i).getX() == entities.get(j).getX() && human.get(i).getY() == entities.get(j).getY() - 1) {
++                    entities.get(j).stop();
++                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
++                    entities.remove(j);
++                    System.out.println(entities.size());
++                    zombieAmount--;
++                } else if (human.get(i).getX() == entities.get(j).getX() - 1 && human.get(i).getY() == entities.get(j).getY()) {
++                    entities.get(j).stop();
++                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
++                    entities.remove(j);
++                    System.out.println(entities.size());
++                    zombieAmount--;
++                } else if (human.get(i).getX() == entities.get(j).getX() + 1 && human.get(i).getY() == entities.get(j).getY()) {
++                    entities.get(j).stop();
++                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
++                    entities.remove(j);
++                    System.out.println(entities.size());
++                    zombieAmount--;
++                } else if (human.get(i).getX() == entities.get(j).getX() && human.get(i).getY() == entities.get(j).getY() + 1) {
++                    entities.get(j).stop();
++                    GamePanel.setObject(entities.get(j).getX(), entities.get(j).getY(), GamePanel.getBoardColor());
++                    entities.remove(j);
++                    System.out.println(entities.size());
++                    zombieAmount--;
++                }
++            }
++        }
+     }
+ 
+-    public static void restart() {
+-        GamePanel.resetBoard();
++    public void restart() {
+         stopMove();
+-        Human.setPosition();
+-        Zombie.setPosition();
+-        Obstacle.setPosition();
++        GamePanel.resetBoard();
++        start();
++    }
++
++    public void start() {
++        for (int i = 0; i < humanAmount; i++) {
++            human.add(new Human(10, 100));
++            human.get(i).setPosition();
++        }
++        zombieAmount = 5;
++        for (int i = 0; i < zombieAmount; i++) {
++            entities.add(new Zombie(0, 0));
++            entities.get(i).setPosition();
++        }
++    }
++
++    public void startMove() {
++        for (int i = 0; i < humanAmount; i++) {
++            human.get(i).start();
++        }
++        for (int i = 0; i < zombieAmount; i++) {
++            entities.get(i).start();
++        }
++        timer.start();
+     }
+ 
+-    public static void startMove() {
+-        Zombie.startMove();
+-        Human.startMove();
++    public void stopMove() {
++        for (int i = 0; i < humanAmount; i++) {
++            human.get(i).stop();
++        }
++        for (int i = 0; i < zombieAmount; i++) {
++            entities.get(i).stop();
++        }
++        timer.stop();
+     }
+ 
+-    public static void stopMove() {
+-        Human.stopMove();
+-        Zombie.stopMove();
++    @Override
++    public void actionPerformed(ActionEvent e) {
++        collision();
++        chase();
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e3d9b11f-7ad4-469d-91e3-36a97a25f053\" name=\"Changes\" comment=\"v0.2.0\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"LastExistence\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"dev\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Nk2yD9eY8Fkbtm44rqtpDmTjhw\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jakub/IdeaProjects/LastExistence&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e3d9b11f-7ad4-469d-91e3-36a97a25f053\" name=\"Changes\" comment=\"\" />\r\n      <created>1680194012963</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1680194012963</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"v0.0.1\">\r\n      <created>1680198970296</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680198970296</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"v0.0.1\">\r\n      <created>1680200878398</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680200878398</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"v0.0.1\">\r\n      <created>1680201053572</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680201053572</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"v0.0.2\">\r\n      <created>1680264290765</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680264290765</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"v0.0.2\">\r\n      <created>1680268244797</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680268244797</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"v0.0.3\">\r\n      <created>1680268575563</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680268575563</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"v0.1.0\">\r\n      <created>1680290009748</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680290009748</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"v0.1.0\">\r\n      <created>1680294389256</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680294389256</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"v0.1.0\">\r\n      <created>1680294505256</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680294505256</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"v0.1.1\">\r\n      <created>1680296007480</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680296007480</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"v0.1.2\">\r\n      <created>1680297694075</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680297694075</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"v0.1.2\">\r\n      <created>1680345176607</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680345176607</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"v0.1.3\">\r\n      <created>1680345842580</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680345842580</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"v0.1.3\">\r\n      <created>1680347221219</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680347221219</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"v0.1.3\">\r\n      <created>1680382535267</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680382535267</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"v0.1.3\">\r\n      <created>1680466894455</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680466894455</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"v0.1.3\">\r\n      <created>1680469498749</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680469498749</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"v0.1.3\">\r\n      <created>1680472551529</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680472551529</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"v0.1.4\">\r\n      <created>1680515918465</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680515918465</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"v0.1.4\">\r\n      <created>1680515931309</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680515931309</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"v0.2.0\">\r\n      <created>1680517570009</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680517570009</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"v0.2.0\">\r\n      <created>1680523329385</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680523329385</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"v0.2.0\">\r\n      <created>1680537754488</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680537754488</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"24\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.History.Properties\">\r\n    <option name=\"COLUMN_ID_ORDER\">\r\n      <list>\r\n        <option value=\"Default.Root\" />\r\n        <option value=\"Default.Author\" />\r\n        <option value=\"Default.Date\" />\r\n        <option value=\"Default.Subject\" />\r\n        <option value=\"Space.CommitStatus\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"v0.0.1\" />\r\n    <MESSAGE value=\"v0.0.2\" />\r\n    <MESSAGE value=\"v0.0.3\" />\r\n    <MESSAGE value=\"v0.1.0\" />\r\n    <MESSAGE value=\"v0.1.1\" />\r\n    <MESSAGE value=\"v0.1.2\" />\r\n    <MESSAGE value=\"v0.1.3\" />\r\n    <MESSAGE value=\"v0.1.4\" />\r\n    <MESSAGE value=\"v0.2.0\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"v0.2.0\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7d5552518ed1470efedeec95e8880698d9b1379d)
++++ b/.idea/workspace.xml	(date 1682513408151)
+@@ -4,8 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.2.0">
++    <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.1.0">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Entity.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Human.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/enemies/Bandit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/enemies/Bandit.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/enemies/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/enemies/Zombie.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/Functional/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Functional/GameController.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -44,7 +49,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="dev" />
++        <entry key="$PROJECT_DIR$" value="collision" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -236,7 +241,98 @@
+       <option name="project" value="LOCAL" />
+       <updated>1680537754488</updated>
+     </task>
+-    <option name="localTasksCounter" value="24" />
++    <task id="LOCAL-00024" summary="v0.0.1">
++      <created>1680987035960</created>
++      <option name="number" value="00024" />
++      <option name="presentableId" value="LOCAL-00024" />
++      <option name="project" value="LOCAL" />
++      <updated>1680987035960</updated>
++    </task>
++    <task id="LOCAL-00025" summary="v0.1.0">
++      <created>1680988898840</created>
++      <option name="number" value="00025" />
++      <option name="presentableId" value="LOCAL-00025" />
++      <option name="project" value="LOCAL" />
++      <updated>1680988898840</updated>
++    </task>
++    <task id="LOCAL-00026" summary="v0.1.0">
++      <created>1680989273128</created>
++      <option name="number" value="00026" />
++      <option name="presentableId" value="LOCAL-00026" />
++      <option name="project" value="LOCAL" />
++      <updated>1680989273128</updated>
++    </task>
++    <task id="LOCAL-00027" summary="v0.1.0">
++      <created>1680989937420</created>
++      <option name="number" value="00027" />
++      <option name="presentableId" value="LOCAL-00027" />
++      <option name="project" value="LOCAL" />
++      <updated>1680989937420</updated>
++    </task>
++    <task id="LOCAL-00028" summary="v0.1.0">
++      <created>1680990033701</created>
++      <option name="number" value="00028" />
++      <option name="presentableId" value="LOCAL-00028" />
++      <option name="project" value="LOCAL" />
++      <updated>1680990033701</updated>
++    </task>
++    <task id="LOCAL-00029" summary="v0.1.0">
++      <created>1680990493651</created>
++      <option name="number" value="00029" />
++      <option name="presentableId" value="LOCAL-00029" />
++      <option name="project" value="LOCAL" />
++      <updated>1680990493651</updated>
++    </task>
++    <task id="LOCAL-00030" summary="v0.1.0">
++      <created>1680990649738</created>
++      <option name="number" value="00030" />
++      <option name="presentableId" value="LOCAL-00030" />
++      <option name="project" value="LOCAL" />
++      <updated>1680990649738</updated>
++    </task>
++    <task id="LOCAL-00031" summary="v0.1.0">
++      <created>1680990781432</created>
++      <option name="number" value="00031" />
++      <option name="presentableId" value="LOCAL-00031" />
++      <option name="project" value="LOCAL" />
++      <updated>1680990781432</updated>
++    </task>
++    <task id="LOCAL-00032" summary="v0.1.0">
++      <created>1680990825572</created>
++      <option name="number" value="00032" />
++      <option name="presentableId" value="LOCAL-00032" />
++      <option name="project" value="LOCAL" />
++      <updated>1680990825572</updated>
++    </task>
++    <task id="LOCAL-00033" summary="v0.1.0">
++      <created>1680990890762</created>
++      <option name="number" value="00033" />
++      <option name="presentableId" value="LOCAL-00033" />
++      <option name="project" value="LOCAL" />
++      <updated>1680990890762</updated>
++    </task>
++    <task id="LOCAL-00034" summary="v0.1.0">
++      <created>1680993679972</created>
++      <option name="number" value="00034" />
++      <option name="presentableId" value="LOCAL-00034" />
++      <option name="project" value="LOCAL" />
++      <updated>1680993679972</updated>
++    </task>
++    <task id="LOCAL-00035" summary="v0.1.0">
++      <created>1680994402965</created>
++      <option name="number" value="00035" />
++      <option name="presentableId" value="LOCAL-00035" />
++      <option name="project" value="LOCAL" />
++      <updated>1680994402965</updated>
++    </task>
++    <task id="LOCAL-00036" summary="v0.1.0">
++      <created>1681041634934</created>
++      <option name="number" value="00036" />
++      <option name="presentableId" value="LOCAL-00036" />
++      <option name="project" value="LOCAL" />
++      <updated>1681041634934</updated>
++    </task>
++    <option name="localTasksCounter" value="37" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.History.Properties">
+@@ -258,19 +354,24 @@
+             <State />
+           </value>
+         </entry>
++        <entry key="bb776718-8349-4b1c-a628-4b6b1687bb6b">
++          <value>
++            <State />
++          </value>
++        </entry>
+       </map>
+     </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="v0.0.1" />
+     <MESSAGE value="v0.0.2" />
+     <MESSAGE value="v0.0.3" />
+-    <MESSAGE value="v0.1.0" />
+     <MESSAGE value="v0.1.1" />
+     <MESSAGE value="v0.1.2" />
+     <MESSAGE value="v0.1.3" />
+     <MESSAGE value="v0.1.4" />
+     <MESSAGE value="v0.2.0" />
+-    <option name="LAST_COMMIT_MESSAGE" value="v0.2.0" />
++    <MESSAGE value="v0.0.1" />
++    <MESSAGE value="v0.1.0" />
++    <option name="LAST_COMMIT_MESSAGE" value="v0.1.0" />
+   </component>
+ </project>
+\ No newline at end of file
