@@ -45,6 +45,7 @@ public class MenuButtons extends JPanel implements ActionListener {
 
         start.addActionListener(this);
         reset.addActionListener(this);
+        settings.addActionListener(this);
 
 
         add(start);
@@ -59,6 +60,7 @@ public class MenuButtons extends JPanel implements ActionListener {
         if (e.getSource() == reset) {
             game.restart();
         } else if (e.getSource() == settings) {
+            new Settings();
         } else if (e.getSource() == license) {
         } else if (e.getSource() == start) {
             game.startMove();

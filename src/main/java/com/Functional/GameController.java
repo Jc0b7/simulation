@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class GameController {
 
     private int obstacleAmount = 8;
-    private int zombieAmount = 5;
-    private int humanAmount = 1;
+    private static int zombieAmount = 5;
+    private static int humanAmount = 1;
     private ArrayList<Human> human = new ArrayList<>();
     private ArrayList<Entity> entities = new ArrayList<>();
     private ArrayList<Obstacle> obstacles = new ArrayList<>();
