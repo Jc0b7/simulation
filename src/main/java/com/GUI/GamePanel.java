@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class GamePanel extends JPanel {
     private static final int boardSize = 9;
-    private static final Color boardColor = new Color(7, 142, 12);
+    private static final Color boardColor = Color.white;
     private static final JButton[][] board = new JButton[boardSize][boardSize];
     private final int SCREEN_WIDTH = 1000;
     private final int SCREEN_HEIGHT = 900;

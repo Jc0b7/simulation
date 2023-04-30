@@ -3,6 +3,7 @@ package com.Functional;
 import com.DynamicObjects.*;
 import com.DynamicObjects.enemies.*;
 import com.GUI.GamePanel;
+import com.StaticObjects.Obstacle;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,10 +12,12 @@ import java.util.ArrayList;
 
 public class GameController {
 
+    private int obstacleAmount = 8;
     private int zombieAmount = 5;
     private int humanAmount = 1;
     private ArrayList<Human> human = new ArrayList<>();
     private ArrayList<Entity> entities = new ArrayList<>();
+    private ArrayList<Obstacle> obstacles = new ArrayList<>();
     private static GameController instance = null;
 
     public static GameController getInstance() {
@@ -43,6 +46,10 @@ public class GameController {
         for (int i = 0; i < zombieAmount; i++) {
             entities.add(new Zombie(0, 0));
             entities.get(i).setPosition();
+        }
+        for (int i = 0; i < obstacleAmount; i++) {
+            obstacles.add(new Obstacle());
+            obstacles.get(i).setPosition();
         }
     }
 
