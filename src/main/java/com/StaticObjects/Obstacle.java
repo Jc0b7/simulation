@@ -14,6 +14,5 @@ public class Obstacle {
         Random random = new Random();
         x = random.nextInt(GamePanel.getBoardSize());
         y = random.nextInt(GamePanel.getBoardSize());
-        GamePanel.setObject(x, y, Color.DARK_GRAY);
     }
 }

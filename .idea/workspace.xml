@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.1.0" />
+    <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.1.0">
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/infantry.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/zombie.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/enemies/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/enemies/Zombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Functional/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Functional/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/GUI/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StaticObjects/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StaticObjects/Obstacle.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,13 +62,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Nk2yD9eY8Fkbtm44rqtpDmTjhw" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -343,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682852190876</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="v0.1.0">
+      <created>1682852224893</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1682852224893</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -374,6 +394,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="v0.0.2" />
     <MESSAGE value="v0.0.3" />
     <MESSAGE value="v0.1.1" />

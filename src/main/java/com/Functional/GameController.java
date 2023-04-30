@@ -9,13 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class GameController implements ActionListener {
+public class GameController {
 
     private int zombieAmount = 5;
     private int humanAmount = 1;
-    private ArrayList<Human> human = new ArrayList<>(humanAmount);
-    private ArrayList<Entity> entities = new ArrayList<>(zombieAmount);
-    private final Timer timer = new Timer(0, this);
+    private ArrayList<Human> human = new ArrayList<>();
+    private ArrayList<Entity> entities = new ArrayList<>();
     private static GameController instance = null;
 
     public static GameController getInstance() {
@@ -41,7 +40,6 @@ public class GameController implements ActionListener {
             human.add(new Human(10, 100));
             human.get(i).setPosition();
         }
-        zombieAmount = 5;
         for (int i = 0; i < zombieAmount; i++) {
             entities.add(new Zombie(0, 0));
             entities.get(i).setPosition();
@@ -55,7 +53,6 @@ public class GameController implements ActionListener {
         for (int i = 0; i < zombieAmount; i++) {
             entities.get(i).start();
         }
-        timer.start();
     }
 
     public void stopMove() {
@@ -65,10 +62,5 @@ public class GameController implements ActionListener {
         for (int i = 0; i < zombieAmount; i++) {
             entities.get(i).stop();
         }
-        timer.stop();
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
     }
 }

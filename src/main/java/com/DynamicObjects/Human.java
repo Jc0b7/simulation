@@ -13,12 +13,14 @@ public class Human extends Entity implements ActionListener {
 
     private static final Color HUMAN = Color.PINK;
 
+
     public Human(int dmg, int hp) {
         setDmg(dmg);
         setHp(hp);
         setVelocity(500);
         setGold(100);
         action = new Timer(velocity, this);
+        icon = new ImageIcon("src/main/java/resources/infantry.png");
     }
 
     @Override
@@ -32,7 +34,7 @@ public class Human extends Entity implements ActionListener {
         } while (GamePanel.checkPosition(newX, newY));
         setX(newX);
         setY(newY);
-        GamePanel.setObject(getX(), getY(), HUMAN);
+        GamePanel.setObject(getX(), getY(), icon);
     }
 
     @Override
@@ -77,11 +79,11 @@ public class Human extends Entity implements ActionListener {
                     }
                 }
             } while (GamePanel.checkOutOfBorder(newX, newY));
-        } while (GamePanel.checkPosition(newX, newY, Zombie.getZOMBIE()));
-        GamePanel.setObject(getX(), getY(), GamePanel.getBoardColor());
+        } while (GamePanel.checkPosition(newX, newY));
+        GamePanel.setObject(getX(), getY(), null);
         setX(newX);
         setY(newY);
-        GamePanel.setObject(getX(), getY(), HUMAN);
+        GamePanel.setObject(getX(), getY(), icon);
     }
 
     public static Color getHUMAN() {

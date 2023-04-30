@@ -31,7 +31,7 @@ public class GamePanel extends JPanel {
     }
 
     public static boolean checkPosition(int x, int y) {
-        return board[x][y].getBackground() != boardColor;
+        return board[x][y].getIcon() != null;
     }
 
     public static boolean checkPosition(int x, int y, Color color) {
@@ -42,8 +42,8 @@ public class GamePanel extends JPanel {
         return (x < 0 || y < 0 || y >= boardSize || x >= boardSize);
     }
 
-    public static void setObject(int x, int y, Color color) {
-        board[x][y].setBackground(color);
+    public static void setObject(int x, int y, ImageIcon icon) {
+        board[x][y].setIcon(icon);
     }
 
     public static Color getBoardColor() {
@@ -53,7 +53,7 @@ public class GamePanel extends JPanel {
     public static void resetBoard() {
         for (int i = 0; i < boardSize; i++) {
             for (int j = 0; j < boardSize; j++) {
-                board[i][j].setBackground(boardColor);
+                board[i][j].setIcon(null);
             }
         }
     }

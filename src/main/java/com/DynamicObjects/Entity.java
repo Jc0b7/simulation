@@ -12,8 +12,10 @@ public abstract class Entity {
     protected int hp;
     protected int gold;
     protected int velocity;
+
+    protected static int amount;
     protected final Random random = new Random();
-    protected static ImageIcon icon;
+    protected ImageIcon icon;
     protected Timer action;
 
     abstract public void setPosition();
@@ -83,4 +85,5 @@ public abstract class Entity {
     public void setGold(int gold) {
         this.gold = gold;
     }
+
 }

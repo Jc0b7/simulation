@@ -19,6 +19,7 @@ public class Zombie extends Entity implements ActionListener {
         setVelocity(750);
         setGold(100);
         action = new Timer(velocity,this);
+        icon = new ImageIcon("src/main/java/resources/zombie.png");
     }
 
 
@@ -33,7 +34,7 @@ public class Zombie extends Entity implements ActionListener {
         } while (GamePanel.checkPosition(newX, newY));
         setX(newX);
         setY(newY);
-        GamePanel.setObject(getX(), getY(), ZOMBIE);
+        GamePanel.setObject(getX(), getY(), icon);
     }
 
     @Override
@@ -77,11 +78,11 @@ public class Zombie extends Entity implements ActionListener {
                     }
                 }
             } while (GamePanel.checkOutOfBorder(changeX, changeY));
-        } while (GamePanel.checkPosition(changeX, changeY, Human.getHUMAN()));
-        GamePanel.setObject(getX(), getY(), GamePanel.getBoardColor());
+        } while (GamePanel.checkPosition(changeX, changeY));
+        GamePanel.setObject(getX(), getY(), null);
         setX(changeX);
         setY(changeY);
-        GamePanel.setObject(getX(), getY(), ZOMBIE);
+        GamePanel.setObject(getX(), getY(), icon);
     }
 
     @Override
