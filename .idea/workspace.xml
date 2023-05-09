@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3d9b11f-7ad4-469d-91e3-36a97a25f053" name="Changes" comment="v0.1.0">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_04_2023_01_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_04_2023_01_24__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_2023_14_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_2023_14_50__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_2023_14_50__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_2023_14_50__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_04_2023_14_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_04_2023_14_59__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_03_2023_11_38__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_03_2023_11_38__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Functional/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Functional/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/GUI/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/enemies/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicObjects/enemies/Zombie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/GUI/menu/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/GUI/menu/Settings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

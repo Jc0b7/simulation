@@ -86,10 +86,6 @@ public class Human extends Entity implements ActionListener {
         GamePanel.setObject(getX(), getY(), icon);
     }
 
-    public static Color getHUMAN() {
-        return HUMAN;
-    }
-
     @Override
     public void start() {
         action.start();

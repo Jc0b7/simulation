@@ -11,8 +11,6 @@ import java.awt.event.ActionListener;
 
 public class Zombie extends Entity implements ActionListener {
 
-    private static final Color ZOMBIE = Color.green;
-
     public Zombie(int dmg, int hp) {
         setDmg(dmg);
         setHp(hp);
@@ -100,7 +98,4 @@ public class Zombie extends Entity implements ActionListener {
         move();
     }
 
-    public static Color getZOMBIE() {
-        return ZOMBIE;
-    }
 }

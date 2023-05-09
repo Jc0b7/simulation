@@ -91,6 +91,7 @@ public class Settings extends JFrame implements ChangeListener, ActionListener {
             GameController.setHumanAmount(humanSlider.getValue());
             GameController.setObstacleAmount(obstacleSlider.getValue());
             super.dispose();
+            new GamePanel();
 
         }
     }
